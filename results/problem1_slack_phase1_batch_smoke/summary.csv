@@ -1,0 +1,4 @@
+﻿cores,cases_expected,cases_ok,average_speedup,total_seconds,total_added_copy_bytes
+1,7,7,1.0,,
+2,7,7,1.856886240022399,61.132416877000004,15516738
+5,7,7,3.757932997401872,58.853477917999996,17966206

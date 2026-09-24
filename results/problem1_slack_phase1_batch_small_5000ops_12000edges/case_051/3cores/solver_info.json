@@ -1,0 +1,173 @@
+{
+  "selected": "strong_b10",
+  "single_makespan": 607628,
+  "best_makespan": 336412,
+  "speedup": 1.8062019190754195,
+  "added_copy_bytes": 9046402,
+  "subgraphs": 408,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 607628,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 1.0560619831085205
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 607628,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 1.0972471237182617
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 336412,
+      "added_copy_bytes": 9046402,
+      "subgraphs": 408,
+      "seconds": 1.4922189712524414
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 610693,
+      "added_copy_bytes": 1966160,
+      "subgraphs": 6,
+      "seconds": 0.615624189376831
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 614787,
+      "added_copy_bytes": 8913256,
+      "subgraphs": 25,
+      "seconds": 0.5941321849822998
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 621762,
+      "added_copy_bytes": 8782180,
+      "subgraphs": 24,
+      "seconds": 0.6110758781433105
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 614371,
+      "added_copy_bytes": 4325552,
+      "subgraphs": 12,
+      "seconds": 0.5364480018615723
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 621762,
+      "added_copy_bytes": 8782180,
+      "subgraphs": 24,
+      "seconds": 0.5841820240020752
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 614371,
+      "added_copy_bytes": 4325552,
+      "subgraphs": 12,
+      "seconds": 0.5514469146728516
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 348413,
+      "added_copy_bytes": 9046494,
+      "subgraphs": 456,
+      "seconds": 1.5201771259307861
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 374497,
+      "added_copy_bytes": 9046678,
+      "subgraphs": 552,
+      "seconds": 1.8940010070800781
+    },
+    {
+      "name": "slack_safe12",
+      "makespan": 371393,
+      "added_copy_bytes": 9046006,
+      "subgraphs": 384,
+      "seconds": 1.2687251567840576
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 614049,
+      "added_copy_bytes": 4260024,
+      "subgraphs": 21,
+      "seconds": 0.5028760433197021
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 601056,
+      "added_copy_bytes": 1179776,
+      "subgraphs": 13,
+      "seconds": 0.6378269195556641
+    },
+    {
+      "name": "frontier6",
+      "makespan": 534205,
+      "added_copy_bytes": 7570112,
+      "subgraphs": 111,
+      "seconds": 0.7273170948028564
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 337193,
+      "added_copy_bytes": 9046402,
+      "subgraphs": 408,
+      "seconds": 1.425494909286499
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 337193,
+      "added_copy_bytes": 9046402,
+      "subgraphs": 408,
+      "seconds": 1.2302231788635254
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 337193,
+      "added_copy_bytes": 9046402,
+      "subgraphs": 408,
+      "seconds": 1.198667049407959
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 337193,
+      "added_copy_bytes": 9046402,
+      "subgraphs": 408,
+      "seconds": 1.3689601421356201
+    },
+    {
+      "name": "merge_r0_390_394",
+      "makespan": 343835,
+      "added_copy_bytes": 9046400,
+      "subgraphs": 407
+    },
+    {
+      "name": "merge_r0_390_391",
+      "makespan": 343835,
+      "added_copy_bytes": 9046400,
+      "subgraphs": 407
+    },
+    {
+      "name": "merge_r0_373_377",
+      "makespan": 343835,
+      "added_copy_bytes": 9046400,
+      "subgraphs": 407
+    },
+    {
+      "name": "merge_r0_373_374",
+      "makespan": 343835,
+      "added_copy_bytes": 9046400,
+      "subgraphs": 407
+    },
+    {
+      "name": "merge_r0_356_360",
+      "makespan": 343835,
+      "added_copy_bytes": 9046400,
+      "subgraphs": 407
+    }
+  ]
+}

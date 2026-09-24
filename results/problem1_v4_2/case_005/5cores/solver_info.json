@@ -11,140 +11,140 @@
       "makespan": 95618,
       "added_copy_bytes": 0,
       "subgraphs": 1,
-      "seconds": 3.0984838008880615
+      "seconds": 6.074536323547363
     },
     {
       "name": "wcc_active2",
       "makespan": 95618,
       "added_copy_bytes": 0,
       "subgraphs": 1,
-      "seconds": 3.0252981185913086
+      "seconds": 6.039937496185303
     },
     {
       "name": "wcc_active3",
       "makespan": 95618,
       "added_copy_bytes": 0,
       "subgraphs": 1,
-      "seconds": 3.1500229835510254
+      "seconds": 6.397668123245239
     },
     {
       "name": "wcc_active4",
       "makespan": 95618,
       "added_copy_bytes": 0,
       "subgraphs": 1,
-      "seconds": 3.139008045196533
+      "seconds": 5.906096935272217
     },
     {
       "name": "strong_b10",
       "makespan": 90170,
       "added_copy_bytes": 2867154,
       "subgraphs": 434,
-      "seconds": 2.0143752098083496
+      "seconds": 4.828385829925537
     },
     {
       "name": "aggr_b15",
       "makespan": 84632,
       "added_copy_bytes": 2828004,
       "subgraphs": 520,
-      "seconds": 2.072658061981201
+      "seconds": 5.098823308944702
     },
     {
       "name": "aggr_ultrafine20",
       "makespan": 62305,
       "added_copy_bytes": 2479014,
       "subgraphs": 236,
-      "seconds": 1.4903380870819092
+      "seconds": 3.4791994094848633
     },
     {
       "name": "aggr_fine15",
       "makespan": 62929,
       "added_copy_bytes": 2395942,
       "subgraphs": 189,
-      "seconds": 1.4923648834228516
+      "seconds": 3.2969064712524414
     },
     {
       "name": "aggr_mid12",
       "makespan": 69077,
       "added_copy_bytes": 2235140,
       "subgraphs": 353,
-      "seconds": 2.1754281520843506
+      "seconds": 4.230899095535278
     },
     {
       "name": "aggr_dense6k",
       "makespan": 63577,
       "added_copy_bytes": 2411392,
       "subgraphs": 278,
-      "seconds": 2.1195008754730225
+      "seconds": 3.76725435256958
     },
     {
       "name": "aggr_mixed4k",
       "makespan": 66062,
       "added_copy_bytes": 2092208,
       "subgraphs": 418,
-      "seconds": 1.8368160724639893
+      "seconds": 4.542366981506348
     },
     {
       "name": "strong_long8",
       "makespan": 89961,
       "added_copy_bytes": 2857490,
       "subgraphs": 355,
-      "seconds": 1.9412429332733154
+      "seconds": 4.715464115142822
     },
     {
       "name": "strong_compact12",
       "makespan": 84978,
       "added_copy_bytes": 2803980,
       "subgraphs": 462,
-      "seconds": 2.1475868225097656
+      "seconds": 5.609523296356201
     },
     {
       "name": "corephase_bal",
       "makespan": 82381,
       "added_copy_bytes": 2753392,
       "subgraphs": 103,
-      "seconds": 1.1459860801696777
+      "seconds": 2.7118852138519287
     },
     {
       "name": "corephase_sticky",
       "makespan": 88799,
       "added_copy_bytes": 1806678,
       "subgraphs": 59,
-      "seconds": 0.97200608253479
+      "seconds": 2.50820255279541
     },
     {
       "name": "frontier6",
       "makespan": 80561,
       "added_copy_bytes": 2317666,
       "subgraphs": 176,
-      "seconds": 1.1603996753692627
+      "seconds": 2.932476282119751
     },
     {
       "name": "exact_reassign_a0.1",
       "makespan": 62121,
       "added_copy_bytes": 2479014,
       "subgraphs": 236,
-      "seconds": 1.3250250816345215
+      "seconds": 3.068227767944336
     },
     {
       "name": "exact_reassign_a1",
       "makespan": 62232,
       "added_copy_bytes": 2479014,
       "subgraphs": 236,
-      "seconds": 1.351660966873169
+      "seconds": 3.1233530044555664
     },
     {
       "name": "exact_reassign_a2",
       "makespan": 60467,
       "added_copy_bytes": 2479014,
       "subgraphs": 236,
-      "seconds": 1.3333382606506348
+      "seconds": 3.253232002258301
     },
     {
       "name": "exact_reassign_a3",
       "makespan": 60649,
       "added_copy_bytes": 2479014,
       "subgraphs": 236,
-      "seconds": 1.2911689281463623
+      "seconds": 3.30702805519104
     },
     {
       "name": "merge_r0_208_234",

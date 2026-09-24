@@ -1,0 +1,13 @@
+{
+  "case": "case_041",
+  "cores": 2,
+  "status": "ok",
+  "seconds": 984.6570000000065,
+  "selected": "wcc_pack3",
+  "single": 6003957,
+  "makespan": 2992465,
+  "speedup": 2.0063583032717176,
+  "added_copy": 30357504,
+  "subgraphs": 2,
+  "error": ""
+}

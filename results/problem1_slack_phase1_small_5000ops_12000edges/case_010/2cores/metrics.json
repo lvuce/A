@@ -1,0 +1,13 @@
+{
+  "case": "case_010",
+  "cores": 2,
+  "status": "ok",
+  "seconds": 1.302091667021159,
+  "selected": "corephase_sticky+reassign0.1",
+  "single": 86969,
+  "makespan": 44010,
+  "speedup": 1.9761190638491253,
+  "added_copy": 463016,
+  "subgraphs": 4,
+  "error": ""
+}

@@ -1,0 +1,173 @@
+{
+  "selected": "aggr_mixed4k",
+  "single_makespan": 196276,
+  "best_makespan": 70785,
+  "speedup": 2.7728473546655366,
+  "added_copy_bytes": 1063298,
+  "subgraphs": 277,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 160242,
+      "added_copy_bytes": 0,
+      "subgraphs": 4,
+      "seconds": 5.2297141551971436
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 160206,
+      "added_copy_bytes": 0,
+      "subgraphs": 2,
+      "seconds": 5.056066989898682
+    },
+    {
+      "name": "wcc_active3",
+      "makespan": 160224,
+      "added_copy_bytes": 0,
+      "subgraphs": 3,
+      "seconds": 5.029540061950684
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 137953,
+      "added_copy_bytes": 3117244,
+      "subgraphs": 634,
+      "seconds": 4.066579103469849
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 121733,
+      "added_copy_bytes": 2964844,
+      "subgraphs": 642,
+      "seconds": 4.121045827865601
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 74228,
+      "added_copy_bytes": 1893182,
+      "subgraphs": 209,
+      "seconds": 2.0861830711364746
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 83501,
+      "added_copy_bytes": 1603970,
+      "subgraphs": 315,
+      "seconds": 2.4767801761627197
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 70803,
+      "added_copy_bytes": 1059076,
+      "subgraphs": 259,
+      "seconds": 2.391738176345825
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 72999,
+      "added_copy_bytes": 1510248,
+      "subgraphs": 184,
+      "seconds": 2.0612640380859375
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 70785,
+      "added_copy_bytes": 1063298,
+      "subgraphs": 277,
+      "seconds": 2.742037773132324
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 137953,
+      "added_copy_bytes": 3117244,
+      "subgraphs": 634,
+      "seconds": 4.316260814666748
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 118370,
+      "added_copy_bytes": 2996100,
+      "subgraphs": 593,
+      "seconds": 4.1751580238342285
+    },
+    {
+      "name": "slack_safe12",
+      "makespan": 72387,
+      "added_copy_bytes": 1097092,
+      "subgraphs": 277,
+      "seconds": 2.826016902923584
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 166518,
+      "added_copy_bytes": 2387844,
+      "subgraphs": 72,
+      "seconds": 1.7722680568695068
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 174301,
+      "added_copy_bytes": 1219832,
+      "subgraphs": 45,
+      "seconds": 1.8481059074401855
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 72548,
+      "added_copy_bytes": 1063298,
+      "subgraphs": 277,
+      "seconds": 2.4445199966430664
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 72548,
+      "added_copy_bytes": 1063298,
+      "subgraphs": 277,
+      "seconds": 2.4874210357666016
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 72799,
+      "added_copy_bytes": 1063298,
+      "subgraphs": 277,
+      "seconds": 2.2632548809051514
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 72799,
+      "added_copy_bytes": 1063298,
+      "subgraphs": 277,
+      "seconds": 2.223004102706909
+    },
+    {
+      "name": "merge_r0_14_31",
+      "makespan": 100123,
+      "added_copy_bytes": 1063234,
+      "subgraphs": 276
+    },
+    {
+      "name": "merge_r0_14_29",
+      "makespan": 100123,
+      "added_copy_bytes": 1063234,
+      "subgraphs": 276
+    },
+    {
+      "name": "merge_r0_14_24",
+      "makespan": 100162,
+      "added_copy_bytes": 1063234,
+      "subgraphs": 276
+    },
+    {
+      "name": "merge_r0_275_276",
+      "makespan": 100291,
+      "added_copy_bytes": 1063234,
+      "subgraphs": 276
+    },
+    {
+      "name": "merge_r0_274_275",
+      "makespan": 100291,
+      "added_copy_bytes": 1063234,
+      "subgraphs": 276
+    }
+  ]
+}

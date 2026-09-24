@@ -1,0 +1,173 @@
+{
+  "selected": "strong_b10+reassign0.1",
+  "single_makespan": 261945,
+  "best_makespan": 95487,
+  "speedup": 2.7432530082629047,
+  "added_copy_bytes": 608256,
+  "subgraphs": 25,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 261945,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 0.5124433040618896
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 261945,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 0.5195291042327881
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 95567,
+      "added_copy_bytes": 608256,
+      "subgraphs": 25,
+      "seconds": 0.24178194999694824
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 117335,
+      "added_copy_bytes": 39936,
+      "subgraphs": 12,
+      "seconds": 0.21482396125793457
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 104064,
+      "added_copy_bytes": 104448,
+      "subgraphs": 20,
+      "seconds": 0.18078112602233887
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 104395,
+      "added_copy_bytes": 101376,
+      "subgraphs": 17,
+      "seconds": 0.1977851390838623
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 102918,
+      "added_copy_bytes": 76800,
+      "subgraphs": 20,
+      "seconds": 0.20825433731079102
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 104154,
+      "added_copy_bytes": 101376,
+      "subgraphs": 26,
+      "seconds": 0.2190098762512207
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 107440,
+      "added_copy_bytes": 52224,
+      "subgraphs": 15,
+      "seconds": 0.22775912284851074
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 96152,
+      "added_copy_bytes": 608256,
+      "subgraphs": 32,
+      "seconds": 0.2558910846710205
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 97340,
+      "added_copy_bytes": 608256,
+      "subgraphs": 44,
+      "seconds": 0.28725099563598633
+    },
+    {
+      "name": "slack_safe12",
+      "makespan": 101037,
+      "added_copy_bytes": 930816,
+      "subgraphs": 56,
+      "seconds": 0.4419591426849365
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 102711,
+      "added_copy_bytes": 900096,
+      "subgraphs": 12,
+      "seconds": 0.40836215019226074
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 101339,
+      "added_copy_bytes": 869376,
+      "subgraphs": 12,
+      "seconds": 0.4355449676513672
+    },
+    {
+      "name": "frontier6",
+      "makespan": 112364,
+      "added_copy_bytes": 608256,
+      "subgraphs": 199,
+      "seconds": 0.3842339515686035
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 95487,
+      "added_copy_bytes": 608256,
+      "subgraphs": 25,
+      "seconds": 0.243696928024292
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 95487,
+      "added_copy_bytes": 608256,
+      "subgraphs": 25,
+      "seconds": 0.23765015602111816
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 95487,
+      "added_copy_bytes": 608256,
+      "subgraphs": 25,
+      "seconds": 0.24674391746520996
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 95487,
+      "added_copy_bytes": 608256,
+      "subgraphs": 25,
+      "seconds": 0.2392120361328125
+    },
+    {
+      "name": "merge_r0_23_24",
+      "makespan": 96747,
+      "added_copy_bytes": 605184,
+      "subgraphs": 24
+    },
+    {
+      "name": "merge_r0_21_24",
+      "makespan": 96855,
+      "added_copy_bytes": 605184,
+      "subgraphs": 24
+    },
+    {
+      "name": "merge_r0_18_24",
+      "makespan": 98875,
+      "added_copy_bytes": 602112,
+      "subgraphs": 24
+    },
+    {
+      "name": "merge_r0_22_24",
+      "makespan": 97615,
+      "added_copy_bytes": 605184,
+      "subgraphs": 24
+    },
+    {
+      "name": "merge_r0_20_24",
+      "makespan": 97615,
+      "added_copy_bytes": 605184,
+      "subgraphs": 24
+    }
+  ]
+}

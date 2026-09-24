@@ -2,7 +2,7 @@
   "case": "case_009",
   "cores": 3,
   "status": "ok",
-  "seconds": 49.91003349999664,
+  "seconds": 90.54699999999139,
   "selected": "aggr_dense6k",
   "single": 153261,
   "makespan": 64735,

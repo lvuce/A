@@ -2,7 +2,7 @@
   "case": "case_008",
   "cores": 4,
   "status": "ok",
-  "seconds": 3.493752249982208,
+  "seconds": 6.969000000011874,
   "selected": "wcc_pack3",
   "single": 487605,
   "makespan": 123060,

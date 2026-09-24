@@ -1,0 +1,17 @@
+{
+  "selected": "wcc_pack3",
+  "single_makespan": 4539717,
+  "best_makespan": 2271316,
+  "speedup": 1.9987166030618373,
+  "added_copy_bytes": 33431552,
+  "subgraphs": 2,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 2271316,
+      "added_copy_bytes": 33431552,
+      "subgraphs": 2,
+      "seconds": 501.6368887424469
+    }
+  ]
+}

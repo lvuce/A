@@ -1,0 +1,31 @@
+{
+  "selected": "wcc_pack3",
+  "single_makespan": 3974071,
+  "best_makespan": 885851,
+  "speedup": 4.486161894043129,
+  "added_copy_bytes": 11934720,
+  "subgraphs": 5,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 885851,
+      "added_copy_bytes": 11934720,
+      "subgraphs": 5,
+      "seconds": 675.9077136516571
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 1198699,
+      "added_copy_bytes": 35734902,
+      "subgraphs": 898,
+      "seconds": 47.62401247024536
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 1043606,
+      "added_copy_bytes": 35565732,
+      "subgraphs": 1393,
+      "seconds": 53.47265100479126
+    }
+  ]
+}

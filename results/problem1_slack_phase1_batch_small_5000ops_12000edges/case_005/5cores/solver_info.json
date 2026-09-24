@@ -1,0 +1,187 @@
+{
+  "selected": "slack_safe12",
+  "single_makespan": 95618,
+  "best_makespan": 59620,
+  "speedup": 1.6037906742703791,
+  "added_copy_bytes": 1879124,
+  "subgraphs": 351,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 95618,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 5.653398036956787
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 95618,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 6.250107765197754
+    },
+    {
+      "name": "wcc_active3",
+      "makespan": 95618,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 5.967805862426758
+    },
+    {
+      "name": "wcc_active4",
+      "makespan": 95618,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 7.405155897140503
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 90170,
+      "added_copy_bytes": 2867154,
+      "subgraphs": 434,
+      "seconds": 3.8203961849212646
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 84632,
+      "added_copy_bytes": 2828004,
+      "subgraphs": 520,
+      "seconds": 3.6586341857910156
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 62305,
+      "added_copy_bytes": 2479014,
+      "subgraphs": 236,
+      "seconds": 2.9262590408325195
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 62929,
+      "added_copy_bytes": 2395942,
+      "subgraphs": 189,
+      "seconds": 2.786201000213623
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 69077,
+      "added_copy_bytes": 2235140,
+      "subgraphs": 353,
+      "seconds": 2.9292290210723877
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 63577,
+      "added_copy_bytes": 2411392,
+      "subgraphs": 278,
+      "seconds": 3.062656879425049
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 66062,
+      "added_copy_bytes": 2092208,
+      "subgraphs": 418,
+      "seconds": 3.3953490257263184
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 89961,
+      "added_copy_bytes": 2857490,
+      "subgraphs": 355,
+      "seconds": 3.136484146118164
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 84978,
+      "added_copy_bytes": 2803980,
+      "subgraphs": 462,
+      "seconds": 3.445300817489624
+    },
+    {
+      "name": "slack_safe12",
+      "makespan": 59620,
+      "added_copy_bytes": 1879124,
+      "subgraphs": 351,
+      "seconds": 3.1715660095214844
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 82381,
+      "added_copy_bytes": 2753392,
+      "subgraphs": 103,
+      "seconds": 1.8553671836853027
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 88799,
+      "added_copy_bytes": 1806678,
+      "subgraphs": 59,
+      "seconds": 1.6228618621826172
+    },
+    {
+      "name": "frontier6",
+      "makespan": 80561,
+      "added_copy_bytes": 2317666,
+      "subgraphs": 176,
+      "seconds": 1.7820382118225098
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 60207,
+      "added_copy_bytes": 1879124,
+      "subgraphs": 351,
+      "seconds": 2.432934045791626
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 59944,
+      "added_copy_bytes": 1879124,
+      "subgraphs": 351,
+      "seconds": 2.613259792327881
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 60149,
+      "added_copy_bytes": 1879124,
+      "subgraphs": 351,
+      "seconds": 2.487161159515381
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 60895,
+      "added_copy_bytes": 1879124,
+      "subgraphs": 351,
+      "seconds": 2.4453749656677246
+    },
+    {
+      "name": "merge_r0_240_244",
+      "makespan": 69057,
+      "added_copy_bytes": 1876052,
+      "subgraphs": 350
+    },
+    {
+      "name": "merge_r0_239_243",
+      "makespan": 69391,
+      "added_copy_bytes": 1877588,
+      "subgraphs": 350
+    },
+    {
+      "name": "merge_r0_239_241",
+      "makespan": 69152,
+      "added_copy_bytes": 1877588,
+      "subgraphs": 350
+    },
+    {
+      "name": "merge_r0_127_132",
+      "makespan": 68257,
+      "added_copy_bytes": 1877588,
+      "subgraphs": 350
+    },
+    {
+      "name": "merge_r0_127_129",
+      "makespan": 68845,
+      "added_copy_bytes": 1877588,
+      "subgraphs": 350
+    }
+  ]
+}

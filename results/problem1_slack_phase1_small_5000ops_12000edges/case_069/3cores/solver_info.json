@@ -1,0 +1,173 @@
+{
+  "selected": "aggr_dense6k+reassign0.1+reassign3",
+  "single_makespan": 25144,
+  "best_makespan": 17101,
+  "speedup": 1.4703233729021694,
+  "added_copy_bytes": 545674,
+  "subgraphs": 66,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 25144,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 0.2143847942352295
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 25144,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 0.21029305458068848
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 25989,
+      "added_copy_bytes": 666582,
+      "subgraphs": 90,
+      "seconds": 0.3163478374481201
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 23665,
+      "added_copy_bytes": 662088,
+      "subgraphs": 102,
+      "seconds": 0.3026390075683594
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 19394,
+      "added_copy_bytes": 609554,
+      "subgraphs": 54,
+      "seconds": 0.2601132392883301
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 18381,
+      "added_copy_bytes": 538312,
+      "subgraphs": 48,
+      "seconds": 0.3293449878692627
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 19512,
+      "added_copy_bytes": 515738,
+      "subgraphs": 98,
+      "seconds": 0.3340620994567871
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 18337,
+      "added_copy_bytes": 545674,
+      "subgraphs": 66,
+      "seconds": 0.34161996841430664
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 20300,
+      "added_copy_bytes": 465426,
+      "subgraphs": 98,
+      "seconds": 0.4290587902069092
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 25735,
+      "added_copy_bytes": 666582,
+      "subgraphs": 114,
+      "seconds": 0.44066405296325684
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 25629,
+      "added_copy_bytes": 674146,
+      "subgraphs": 162,
+      "seconds": 0.4256608486175537
+    },
+    {
+      "name": "slack_safe12",
+      "makespan": 36817,
+      "added_copy_bytes": 1179562,
+      "subgraphs": 226,
+      "seconds": 0.8087608814239502
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 26260,
+      "added_copy_bytes": 651188,
+      "subgraphs": 24,
+      "seconds": 0.2202157974243164
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 28686,
+      "added_copy_bytes": 620872,
+      "subgraphs": 26,
+      "seconds": 0.21744775772094727
+    },
+    {
+      "name": "frontier6",
+      "makespan": 24011,
+      "added_copy_bytes": 740150,
+      "subgraphs": 79,
+      "seconds": 0.23636627197265625
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 17249,
+      "added_copy_bytes": 545674,
+      "subgraphs": 66,
+      "seconds": 0.22408294677734375
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 17249,
+      "added_copy_bytes": 545674,
+      "subgraphs": 66,
+      "seconds": 0.2201848030090332
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 17249,
+      "added_copy_bytes": 545674,
+      "subgraphs": 66,
+      "seconds": 0.22150397300720215
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 17101,
+      "added_copy_bytes": 545674,
+      "subgraphs": 66,
+      "seconds": 0.23392796516418457
+    },
+    {
+      "name": "merge_r0_58_64",
+      "makespan": 18788,
+      "added_copy_bytes": 545578,
+      "subgraphs": 65
+    },
+    {
+      "name": "merge_r0_57_63",
+      "makespan": 17925,
+      "added_copy_bytes": 545578,
+      "subgraphs": 65
+    },
+    {
+      "name": "merge_r0_56_62",
+      "makespan": 18696,
+      "added_copy_bytes": 545578,
+      "subgraphs": 65
+    },
+    {
+      "name": "merge_r0_55_61",
+      "makespan": 18753,
+      "added_copy_bytes": 545578,
+      "subgraphs": 65
+    },
+    {
+      "name": "merge_r0_59_65",
+      "makespan": 18798,
+      "added_copy_bytes": 545610,
+      "subgraphs": 65
+    }
+  ]
+}

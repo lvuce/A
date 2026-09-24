@@ -1,0 +1,13 @@
+{
+  "case": "case_055",
+  "cores": 5,
+  "status": "ok",
+  "seconds": 9.162246207999942,
+  "selected": "slack_safe12",
+  "single": 118835,
+  "makespan": 25338,
+  "speedup": 4.689991317388902,
+  "added_copy": 214528,
+  "subgraphs": 13,
+  "error": ""
+}

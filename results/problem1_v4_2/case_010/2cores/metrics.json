@@ -2,7 +2,7 @@
   "case": "case_010",
   "cores": 2,
   "status": "ok",
-  "seconds": 1.9595584589987993,
+  "seconds": 5.047000000020489,
   "selected": "corephase_sticky+reassign0.1",
   "single": 86969,
   "makespan": 44010,

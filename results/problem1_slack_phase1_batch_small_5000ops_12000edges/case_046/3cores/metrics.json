@@ -1,0 +1,13 @@
+{
+  "case": "case_046",
+  "cores": 3,
+  "status": "ok",
+  "seconds": 10.673403916999973,
+  "selected": "corephase_bal+reassign0.1",
+  "single": 276455,
+  "makespan": 140908,
+  "speedup": 1.9619538989979277,
+  "added_copy": 4001568,
+  "subgraphs": 6,
+  "error": ""
+}

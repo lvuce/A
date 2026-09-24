@@ -1,0 +1,173 @@
+{
+  "selected": "aggr_fine15",
+  "single_makespan": 222220,
+  "best_makespan": 110842,
+  "speedup": 2.0048357120946934,
+  "added_copy_bytes": 775796,
+  "subgraphs": 156,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 222220,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 1.2601592540740967
+    },
+    {
+      "name": "wcc_active2",
+      "makespan": 222220,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 1.2112278938293457
+    },
+    {
+      "name": "wcc_active3",
+      "makespan": 222220,
+      "added_copy_bytes": 0,
+      "subgraphs": 1,
+      "seconds": 1.2863993644714355
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 138005,
+      "added_copy_bytes": 1200228,
+      "subgraphs": 420,
+      "seconds": 1.8515560626983643
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 137665,
+      "added_copy_bytes": 1105770,
+      "subgraphs": 392,
+      "seconds": 1.568180799484253
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 110993,
+      "added_copy_bytes": 728494,
+      "subgraphs": 61,
+      "seconds": 0.785097599029541
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 110842,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.94866943359375
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 110842,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.8907687664031982
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 110993,
+      "added_copy_bytes": 729012,
+      "subgraphs": 69,
+      "seconds": 0.7453372478485107
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 110852,
+      "added_copy_bytes": 776048,
+      "subgraphs": 160,
+      "seconds": 1.093775749206543
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 138005,
+      "added_copy_bytes": 1200228,
+      "subgraphs": 420,
+      "seconds": 1.641059398651123
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 138762,
+      "added_copy_bytes": 1200490,
+      "subgraphs": 429,
+      "seconds": 1.5334727764129639
+    },
+    {
+      "name": "corephase_bal",
+      "makespan": 226890,
+      "added_copy_bytes": 684484,
+      "subgraphs": 43,
+      "seconds": 0.6122071743011475
+    },
+    {
+      "name": "corephase_sticky",
+      "makespan": 232201,
+      "added_copy_bytes": 704708,
+      "subgraphs": 50,
+      "seconds": 0.6300160884857178
+    },
+    {
+      "name": "frontier6",
+      "makespan": 217703,
+      "added_copy_bytes": 701612,
+      "subgraphs": 57,
+      "seconds": 0.5794556140899658
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 110877,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.9620504379272461
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 110877,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.8294363021850586
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 110877,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.9746720790863037
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 110877,
+      "added_copy_bytes": 775796,
+      "subgraphs": 156,
+      "seconds": 0.848405122756958
+    },
+    {
+      "name": "merge_r0_154_155",
+      "makespan": 117917,
+      "added_copy_bytes": 775764,
+      "subgraphs": 155
+    },
+    {
+      "name": "merge_r0_153_154",
+      "makespan": 117917,
+      "added_copy_bytes": 775764,
+      "subgraphs": 155
+    },
+    {
+      "name": "merge_r0_148_149",
+      "makespan": 117917,
+      "added_copy_bytes": 775748,
+      "subgraphs": 155
+    },
+    {
+      "name": "merge_r0_147_148",
+      "makespan": 117917,
+      "added_copy_bytes": 775764,
+      "subgraphs": 155
+    },
+    {
+      "name": "merge_r0_140_141",
+      "makespan": 118020,
+      "added_copy_bytes": 775764,
+      "subgraphs": 155
+    }
+  ]
+}
