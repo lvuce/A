@@ -53,7 +53,7 @@ def load_or_evaluate_baseline(case, graph, config, output_dir):
         return result
 
 
-def run_one(case, cores, data_dir, config, output_dir):
+def run_one(case, cores, data_dir, config, output_dir, solver_name):
     started = time.monotonic()
     job_dir = Path(output_dir) / case / f'{cores}cores'
     metric_path = job_dir / 'metrics.json'
@@ -61,14 +61,24 @@ def run_one(case, cores, data_dir, config, output_dir):
         with (Path(data_dir) / f'{case}.json').open(encoding='utf-8') as handle:
             graph = json.load(handle)
         baseline = load_or_evaluate_baseline(case, graph, config, output_dir)
-        plan, info, result = solve(graph, cores, config, return_result=True,
-                                   baseline_result=baseline)
+        if solver_name == 'v7':
+            from v7_solver import solve as solve_v7, eval_args as v7_eval_args
+            from multicore_cut_evaluate_problem_1 import evaluate_scene_a
+            v7_result = solve_v7(graph, cores, baseline_makespan=baseline['makespan'],
+                                 config=config)
+            plan = v7_result['plan']
+            info = {key: value for key, value in v7_result.items() if key != 'plan'}
+            result = evaluate_scene_a(graph, plan, **v7_eval_args(config))
+        else:
+            plan, info, result = solve(graph, cores, config, return_result=True,
+                                       baseline_result=baseline)
         if result['makespan'] != info['best_makespan']:
             raise ValueError('Solver and official evaluator makespans differ')
         if len(plan['core_schedules']) != cores:
             raise ValueError('Plan has an incorrect number of cores')
         row = dict(case=case, cores=cores, status='ok', seconds=time.monotonic()-started,
-                   selected=info['selected'], single=info['single_makespan'],
+                   selected=info['selected'], single=(info['single'] if solver_name == 'v7'
+                                                    else info['single_makespan']),
                    makespan=result['makespan'], speedup=info['speedup'],
                    added_copy=result['data_movement_bytes']['added_copy_bytes'],
                    subgraphs=len(set(plan['node_to_subgraph'].values())), error='')
@@ -136,7 +146,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data-dir', type=Path, default=DATA)
     parser.add_argument('--config', type=Path)
-    parser.add_argument('--out', type=Path, default=ROOT / 'results' / 'problem1_v4_2')
+    parser.add_argument('--out', type=Path)
+    parser.add_argument('--solver', choices=('v4.2', 'v7'), default='v4.2')
     parser.add_argument('--cores', type=int, nargs='+', default=[2, 3, 4, 5])
     parser.add_argument('--cases', nargs='+', help='Optional case names, e.g. case_001 case_002')
     parser.add_argument('--max-ops', type=int, help='Keep cases with at most this many ops')
@@ -146,7 +157,8 @@ def main():
     args = parser.parse_args()
     data_dir = args.data_dir.resolve()
     config = (args.config or data_dir / 'config.txt').resolve()
-    output_dir = args.out.resolve()
+    output_dir = (args.out or ROOT / 'results' /
+                  ('problem1_v7' if args.solver == 'v7' else 'problem1_v4_2')).resolve()
     if not config.is_file():
         parser.error(f'Configuration file not found: {config}')
     candidates = sorted(args.cases if args.cases else
@@ -184,7 +196,8 @@ def main():
     print(f'{len(cases)} cases, {len(cores_list)} core counts, '
           f'{len(rows)} resumed, {len(pending)} pending; output={output_dir}', flush=True)
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
-        futures = {pool.submit(run_one, case, cores, data_dir, config, output_dir): (case, cores)
+        futures = {pool.submit(run_one, case, cores, data_dir, config, output_dir,
+                               args.solver): (case, cores)
                    for case, cores in pending}
         for future in as_completed(futures):
             case, cores = futures[future]
