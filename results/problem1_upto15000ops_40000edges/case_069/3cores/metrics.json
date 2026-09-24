@@ -1,0 +1,13 @@
+{
+  "case": "case_069",
+  "cores": 3,
+  "status": "ok",
+  "seconds": 9.90003970899852,
+  "selected": "aggr_dense6k+reassign0.1+reassign3",
+  "single": 25144,
+  "makespan": 17101,
+  "speedup": 1.4703233729021694,
+  "added_copy": 545674,
+  "subgraphs": 66,
+  "error": ""
+}

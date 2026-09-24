@@ -1,0 +1,2 @@
+﻿case,cores,status,seconds,selected,single,makespan,speedup,added_copy,subgraphs,error
+case_001,2,ok,0.9947166250203736,wcc_pack3,233110,116868,1.9946435294520313,1152,2,

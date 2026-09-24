@@ -1,0 +1,108 @@
+{
+  "selected": "aggr_mixed4k",
+  "single_makespan": 602212,
+  "best_makespan": 349644,
+  "speedup": 1.72235759801398,
+  "added_copy_bytes": 7102146,
+  "subgraphs": 250,
+  "candidates": [
+    {
+      "name": "wcc_pack3",
+      "makespan": 538381,
+      "added_copy_bytes": 98304,
+      "subgraphs": 2,
+      "seconds": 29.818562984466553
+    },
+    {
+      "name": "strong_b10",
+      "makespan": 415439,
+      "added_copy_bytes": 5897542,
+      "subgraphs": 394,
+      "seconds": 6.061171054840088
+    },
+    {
+      "name": "aggr_b15",
+      "makespan": 432400,
+      "added_copy_bytes": 7207152,
+      "subgraphs": 584,
+      "seconds": 6.671447992324829
+    },
+    {
+      "name": "aggr_ultrafine20",
+      "makespan": 374427,
+      "added_copy_bytes": 7858020,
+      "subgraphs": 298,
+      "seconds": 4.147783279418945
+    },
+    {
+      "name": "aggr_fine15",
+      "makespan": 373989,
+      "added_copy_bytes": 6426130,
+      "subgraphs": 224,
+      "seconds": 4.38484525680542
+    },
+    {
+      "name": "aggr_mid12",
+      "makespan": 376881,
+      "added_copy_bytes": 8153118,
+      "subgraphs": 396,
+      "seconds": 5.368130922317505
+    },
+    {
+      "name": "aggr_dense6k",
+      "makespan": 374873,
+      "added_copy_bytes": 8096614,
+      "subgraphs": 389,
+      "seconds": 5.323890924453735
+    },
+    {
+      "name": "aggr_mixed4k",
+      "makespan": 349644,
+      "added_copy_bytes": 7102146,
+      "subgraphs": 250,
+      "seconds": 4.150269031524658
+    },
+    {
+      "name": "strong_long8",
+      "makespan": 436870,
+      "added_copy_bytes": 8741416,
+      "subgraphs": 786,
+      "seconds": 8.224610090255737
+    },
+    {
+      "name": "strong_compact12",
+      "makespan": 455315,
+      "added_copy_bytes": 9135146,
+      "subgraphs": 1136,
+      "seconds": 10.979626178741455
+    },
+    {
+      "name": "exact_reassign_a0.1",
+      "makespan": 354911,
+      "added_copy_bytes": 7102146,
+      "subgraphs": 250,
+      "seconds": 3.5906341075897217
+    },
+    {
+      "name": "exact_reassign_a1",
+      "makespan": 355268,
+      "added_copy_bytes": 7102146,
+      "subgraphs": 250,
+      "seconds": 3.712898015975952
+    },
+    {
+      "name": "exact_reassign_a2",
+      "makespan": 355873,
+      "added_copy_bytes": 7102146,
+      "subgraphs": 250,
+      "seconds": 3.7720000743865967
+    },
+    {
+      "name": "exact_reassign_a3",
+      "makespan": 356304,
+      "added_copy_bytes": 7102146,
+      "subgraphs": 250,
+      "seconds": 3.86130690574646
+    }
+  ]
+}
