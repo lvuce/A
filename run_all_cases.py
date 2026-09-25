@@ -2,34 +2,34 @@
 # -*- coding: utf-8 -*-
 
 """
-Run a specified solver on every case for one or more core counts.
+Run a specified solver on all (or selected) cases in the configured data directory.
 
-Examples:
-    # Backward-compatible default: 5 cores, quick mode
-    python run_all_cases_multicore.py
+Usage:
+    python run_all_cases.py                                   # quick set, 5 cores
+    python run_all_cases.py A题_problem2_solver.py ./results/p2 all
+    python run_all_cases.py A题_problem2_solver.py ./results/p2 quick --cores 2 3 4 5
+    python run_all_cases.py --cases case_001 case_010 --time-limit 60
+    python run_all_cases.py --limit 10 --max-ops 5000 --workers 4
+    python run_all_cases.py A题_problem2_solver.py ./results/p2 all --resume
 
-    # Single core-count selection
-    python run_all_cases_multicore.py V10_final.py ./results quick --cores 5
+Positional arguments (same order as the original runner):
+    solver       solver script (default: A题_problem2_solver.py)
+    output_dir   output root (default: ./results/<solver name>)
+    mode         quick: cases whose historical V8 runtime <= 1000s (default)
+                 all:   every case
 
-    # Multiple core counts
-    python run_all_cases_multicore.py V10_final.py ./results quick --cores 2 3 4 5
+Case selection (applied after mode): --cases, --max-ops, --limit.
+Core counts: --cores (default 5). For each case the core counts run in
+ascending order and the previous plan warm-starts the next one (--no-warm to
+disable), so the speedup curve is non-decreasing in the core count.
 
-    # Range syntax
-    python run_all_cases_multicore.py V10_final.py ./results quick --cores 2-5
-
-    # Mixed syntax also works
-    python run_all_cases_multicore.py V10_final.py ./results all --cores 2,4-5
+Single-core baselines are cached in <output_dir>/singlecore_cache.json and
+passed to the solver with --single; large cases need minutes to compute it.
 
 Optional environment variables:
     HUAWEI_DATA_DIR
     HUAWEI_CODE_DIR
     V8_MAX_WORKERS
-
-Notes:
-    - --cores defaults to 5, so old usage still works.
-    - Supported core counts are 2, 3, 4, 5.
-    - With multiple core counts, every (case, core_count) pair is submitted as
-      an independent job to the thread pool.
 """
 
 import os
@@ -38,6 +38,7 @@ import glob
 import json
 import csv
 import time
+import threading
 import subprocess
 import argparse
 
@@ -62,89 +63,31 @@ CODE = os.environ.get(
 )
 
 
-def parse_core_specs(values):
-    """Parse core specifications such as:
-
-        ["5"]
-        ["2", "3", "4", "5"]
-        ["2-5"]
-        ["2,4-5"]
-
-    Returns a sorted unique list of integers.
-    """
-    cores = set()
-
-    for raw in values:
-        for token in str(raw).split(","):
-            token = token.strip()
-            if not token:
-                continue
-
-            if "-" in token:
-                parts = token.split("-", 1)
-                if len(parts) != 2:
-                    raise argparse.ArgumentTypeError(
-                        f"Invalid core range: {token}"
-                    )
-                try:
-                    lo = int(parts[0])
-                    hi = int(parts[1])
-                except ValueError:
-                    raise argparse.ArgumentTypeError(
-                        f"Invalid core range: {token}"
-                    )
-
-                if lo > hi:
-                    lo, hi = hi, lo
-
-                for k in range(lo, hi + 1):
-                    cores.add(k)
-            else:
-                try:
-                    cores.add(int(token))
-                except ValueError:
-                    raise argparse.ArgumentTypeError(
-                        f"Invalid core count: {token}"
-                    )
-
-    if not cores:
-        raise argparse.ArgumentTypeError("At least one core count is required.")
-
-    invalid = sorted(k for k in cores if k < 2 or k > 5)
-    if invalid:
-        raise argparse.ArgumentTypeError(
-            "Only core counts 2-5 are supported; invalid: "
-            + ", ".join(map(str, invalid))
-        )
-
-    return sorted(cores)
-
-
 def parse_args():
     parser = argparse.ArgumentParser(
-        description=(
-            "Run a solver on Huawei multicore scheduling cases for one or "
-            "more core counts."
-        )
+        description="Run a solver on all Huawei multicore scheduling cases."
     )
 
     parser.add_argument(
         "solver",
         nargs="?",
-        default="V8_solver_50case.py",
+        default="A题_problem2_solver.py",
         help=(
-            "Solver Python file. Can be a filename relative to this runner, "
-            "or an absolute path. Default: V8_solver_50case.py"
+            "Solver Python file. "
+            "Can be a filename relative to this runner, or an absolute path. "
+            "Default: A题_problem2_solver.py"
         ),
     )
 
     parser.add_argument(
         "output_dir",
         nargs="?",
-        default=ROOT,
-        help="Output root directory. Default: current script directory.",
+        default=None,
+        help=(
+            "Output root directory. "
+            "Default: ./results/<solver name>."
+        ),
     )
-
     parser.add_argument(
         "mode",
         nargs="?",
@@ -155,28 +98,65 @@ def parse_args():
             "(default); all: run every case."
         ),
     )
-
+    parser.add_argument(
+        "--cases",
+        nargs="+",
+        help="Explicit case names, e.g. case_001 case_010 (overrides mode).",
+    )
+    parser.add_argument(
+        "--max-ops",
+        type=int,
+        help="Only cases with at most this many ops.",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="Only the first N selected cases in filename order.",
+    )
     parser.add_argument(
         "--cores",
         nargs="+",
-        default=["5"],
-        metavar="N",
+        type=int,
+        default=[5],
+        help="Core counts to solve (default: 5). Example: --cores 2 3 4 5",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=int(os.environ.get(
+            "V8_MAX_WORKERS",
+            str(max(1, min(20, (os.cpu_count() or 2) - 1))),
+        )),
+        help="Number of cases solved concurrently.",
+    )
+    parser.add_argument(
+        "--time-limit",
+        type=float,
+        default=2000.0,
+        help="Per-(case, core count) search budget in seconds (default 300).",
+    )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Keep completed rows of an earlier run and solve only missing ones.",
+    )
+    parser.add_argument(
+        "--no-warm",
+        action="store_true",
+        help="Do not pass the previous core count's plan as a seed.",
+    )
+    parser.add_argument(
+        "--seed-dir",
         help=(
-            "Core counts to run. Supports: '--cores 5', '--cores 2 3 4 5', "
-            "'--cores 2-5', or '--cores 2,4-5'. Default: 5."
+            "Optional directory with <case>/<k>cores/plan.json seed plans "
+            "(e.g. results/problem1_v4_2); its singlecore_result.json files "
+            "also fill the single-core cache."
         ),
     )
-
-    args = parser.parse_args()
-    try:
-        args.cores = parse_core_specs(args.cores)
-    except argparse.ArgumentTypeError as e:
-        parser.error(str(e))
-    return args
+    return parser.parse_args()
 
 
 ARGS = parse_args()
-CORES = ARGS.cores
 
 
 # ---------------------------------------------------------
@@ -191,33 +171,44 @@ else:
 SOLVER = os.path.abspath(SOLVER)
 
 if not os.path.isfile(SOLVER):
-    raise FileNotFoundError(f"Solver not found: {SOLVER}")
+    raise FileNotFoundError(
+        f"Solver not found: {SOLVER}"
+    )
 
-SOLVER_NAME = os.path.splitext(os.path.basename(SOLVER))[0]
+
+# Solver filename without ".py"
+SOLVER_NAME = os.path.splitext(
+    os.path.basename(SOLVER)
+)[0]
 
 
 # ---------------------------------------------------------
 # Output paths
 # ---------------------------------------------------------
 
-OUTPUT_ROOT = os.path.abspath(ARGS.output_dir)
+OUTPUT_ROOT = os.path.abspath(
+    ARGS.output_dir or os.path.join(ROOT, "results", SOLVER_NAME)
+)
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
-
-CORE_TAG = "-".join(map(str, CORES)) + "core"
 
 OUT_DIR = os.path.join(
     OUTPUT_ROOT,
-    f"{SOLVER_NAME}_{CORE_TAG}_allcase_plans"
+    f"{SOLVER_NAME}_allcase_plans"
 )
 
 CSV_PATH = os.path.join(
     OUTPUT_ROOT,
-    f"{SOLVER_NAME}_{CORE_TAG}_allcase_results.csv"
+    f"{SOLVER_NAME}_allcase_results.csv"
 )
 
 SUMMARY_PATH = os.path.join(
     OUTPUT_ROOT,
-    f"{SOLVER_NAME}_{CORE_TAG}_allcase_summary.json"
+    f"{SOLVER_NAME}_allcase_summary.json"
+)
+
+SINGLE_CACHE_PATH = os.path.join(
+    OUTPUT_ROOT,
+    "singlecore_cache.json"
 )
 
 os.makedirs(OUT_DIR, exist_ok=True)
@@ -229,12 +220,16 @@ os.makedirs(OUT_DIR, exist_ok=True)
 
 ALL_CASES = sorted(
     os.path.basename(fp)[:-5]
-    for fp in glob.glob(os.path.join(DATA, "case_*.json"))
+    for fp in glob.glob(
+        os.path.join(DATA, "case_*.json")
+    )
 )
 
 
-# Historical 5-core V8 runtime.  It is used only as a rough case-size proxy for
-# quick filtering and LPT ordering; it does NOT affect solver evaluation.
+# V8 historical runtime (seconds).
+# 用来：
+# 1. quick 模式过滤 >1000s 的超慢 case（与图规模强相关）
+# 2. 将较慢 case 优先提交给线程池（LPT）
 V8_HISTORY_SECONDS = {
     "case_001": 2.72,
     "case_002": 9.81,
@@ -338,156 +333,217 @@ V8_HISTORY_SECONDS = {
     "case_100": 8.24,
 }
 
+
 QUICK_MAX_SECONDS = 1000.0
 
-if ARGS.mode == "all":
-    CASES = sorted(
-        ALL_CASES,
-        key=lambda c: V8_HISTORY_SECONDS.get(c, 0.0),
-        reverse=True,
-    )
+
+def op_count(case):
+    with open(os.path.join(DATA, case + ".json"), encoding="utf-8") as f:
+        return len(json.load(f)["ops"])
+
+
+if ARGS.cases:
+    unknown = [c for c in ARGS.cases if c not in ALL_CASES]
+    if unknown:
+        raise SystemExit(f"Unknown cases: {unknown}")
+    CASES = sorted(set(ARGS.cases))
+elif ARGS.mode == "all":
+    CASES = list(ALL_CASES)
 else:
+    # 默认 quick：历史耗时 <= 1000 秒的全部运行。
     CASES = [
         c
         for c in ALL_CASES
-        if V8_HISTORY_SECONDS.get(c, 0.0) <= QUICK_MAX_SECONDS
+        if V8_HISTORY_SECONDS.get(c, 0.0)
+        <= QUICK_MAX_SECONDS
     ]
-    CASES.sort(
-        key=lambda c: V8_HISTORY_SECONDS.get(c, 0.0),
-        reverse=True,
-    )
 
-MAX_WORKERS = int(os.environ.get("V8_MAX_WORKERS", "20"))
+if ARGS.max_ops is not None:
+    CASES = [c for c in CASES if op_count(c) <= ARGS.max_ops]
+
+if ARGS.limit is not None:
+    CASES = CASES[:ARGS.limit]
+
+CORES = sorted(set(k for k in ARGS.cores if k >= 1))
+if not CORES:
+    raise SystemExit("--cores must contain at least one positive core count")
+
+# Longest Processing Time first (LPT)：较慢任务先占 worker，减少尾部等待。
+CASES.sort(
+    key=lambda c: V8_HISTORY_SECONDS.get(c, 0.0),
+    reverse=True,
+)
+
+MAX_WORKERS = max(1, ARGS.workers)
+
+COLS = [
+    "case",
+    "cores",
+    "status",
+    "seconds",
+    "single",
+    "makespan",
+    "speedup",
+    "added_copy_bytes",
+    "used_cores",
+    "official_evaluations",
+    "selected",
+    "plan",
+    "error",
+]
 
 
 # ---------------------------------------------------------
-# Worker
+# Resume / caches
 # ---------------------------------------------------------
 
-def run_one(case, cores):
+LOCK = threading.Lock()
+ROWS = {}
+
+if ARGS.resume and os.path.isfile(CSV_PATH):
+    with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            if row.get("status") != "ok" or not os.path.isfile(row.get("plan", "")):
+                continue
+            for key in ("cores", "single", "makespan", "added_copy_bytes",
+                        "used_cores", "official_evaluations"):
+                if row.get(key) not in (None, ""):
+                    row[key] = int(float(row[key]))
+            for key in ("seconds", "speedup"):
+                if row.get(key) not in (None, ""):
+                    row[key] = float(row[key])
+            ROWS[(row["case"], row["cores"])] = row
+
+SINGLE_CACHE = {}
+if os.path.isfile(SINGLE_CACHE_PATH):
+    with open(SINGLE_CACHE_PATH, encoding="utf-8") as f:
+        SINGLE_CACHE.update(json.load(f))
+if ARGS.seed_dir:
+    for case in CASES:
+        path = os.path.join(ARGS.seed_dir, case, "singlecore_result.json")
+        if case not in SINGLE_CACHE and os.path.isfile(path):
+            with open(path, encoding="utf-8") as f:
+                SINGLE_CACHE[case] = json.load(f)["makespan"]
+
+
+def write():
+    rows = sorted(ROWS.values(), key=lambda r: (r["case"], int(r["cores"])))
+    tmp = CSV_PATH + ".tmp"
+    with open(tmp, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=COLS, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
+    os.replace(tmp, CSV_PATH)
+    tmp = SINGLE_CACHE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(SINGLE_CACHE, f, indent=1, sort_keys=True)
+    os.replace(tmp, SINGLE_CACHE_PATH)
+
+
+def plan_path(case, cores):
+    return os.path.join(OUT_DIR, f"{case}_{cores}core.json")
+
+
+# ---------------------------------------------------------
+# Execution
+# ---------------------------------------------------------
+
+def run_one(case, cores, warm_plan):
     graph = os.path.join(DATA, case + ".json")
-
-    plan = os.path.join(
-        OUT_DIR,
-        f"{case}_{cores}core.json"
-    )
+    plan = plan_path(case, cores)
 
     env = os.environ.copy()
     env["HUAWEI_CODE_DIR"] = CODE
 
+    cmd = [
+        sys.executable,
+        SOLVER,
+        graph,
+        str(cores),
+        plan,
+        "--time-limit",
+        str(ARGS.time_limit),
+    ]
+    with LOCK:
+        single = SINGLE_CACHE.get(case)
+    if single is not None:
+        cmd += ["--single", str(single)]
+    if warm_plan and os.path.isfile(warm_plan):
+        cmd += ["--seed-plan", warm_plan]
+    if ARGS.seed_dir:
+        seed = os.path.join(ARGS.seed_dir, case, f"{cores}cores", "plan.json")
+        if os.path.isfile(seed):
+            cmd += ["--seed-plan", seed]
+
     t = time.time()
-
-    p = subprocess.run(
-        [
-            sys.executable,
-            SOLVER,
-            graph,
-            str(cores),
-            plan,
-        ],
-        capture_output=True,
-        text=True,
-        env=env,
-    )
-
+    p = subprocess.run(cmd, capture_output=True, text=True, env=env)
     sec = time.time() - t
 
+    base = {"case": case, "cores": cores, "seconds": sec}
     if p.returncode != 0:
-        return {
-            "case": case,
-            "cores": cores,
-            "status": "error",
-            "seconds": sec,
-            "error": p.stderr[-1000:],
-        }
-
+        return dict(base, status="error", error=p.stderr[-1000:])
     try:
         x = json.loads(p.stdout)
     except Exception as e:
-        return {
-            "case": case,
-            "cores": cores,
-            "status": "error",
-            "seconds": sec,
-            "error": (
+        return dict(
+            base,
+            status="error",
+            error=(
                 f"Failed to parse solver stdout as JSON: {repr(e)}\n"
                 f"stdout tail:\n{p.stdout[-1000:]}\n"
                 f"stderr tail:\n{p.stderr[-1000:]}"
             ),
-        }
-
-    return {
-        "case": case,
-        "cores": cores,
-        "status": "ok",
-        "seconds": sec,
-        "single": x["single"],
-        "makespan": x["best_makespan"],
-        "speedup": x["speedup"],
-        "selected": x["selected"],
-        "plan": plan,
-    }
-
-
-# ---------------------------------------------------------
-# Output helpers
-# ---------------------------------------------------------
-
-def write(rows):
-    cols = [
-        "case",
-        "cores",
-        "status",
-        "seconds",
-        "single",
-        "makespan",
-        "speedup",
-        "selected",
-        "plan",
-        "error",
-    ]
-
-    with open(CSV_PATH, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(
-            f,
-            fieldnames=cols,
-            extrasaction="ignore",
         )
-        w.writeheader()
-        w.writerows(
-            sorted(
-                rows,
-                key=lambda r: (r.get("cores", 0), r["case"])
+    return dict(
+        base,
+        status="ok",
+        single=x["single"],
+        makespan=x["best_makespan"],
+        speedup=x["speedup"],
+        added_copy_bytes=x.get("added_copy_bytes"),
+        used_cores=x.get("used_cores"),
+        official_evaluations=x.get("official_evaluations"),
+        selected=x["selected"],
+        plan=plan,
+    )
+
+
+def run_case(case):
+    """Solve all requested core counts of one case in ascending order."""
+    previous = None
+    for cores in CORES:
+        with LOCK:
+            done = ROWS.get((case, cores))
+        if done is not None:
+            previous = done["plan"]
+            continue
+        row = run_one(case, cores, None if ARGS.no_warm else previous)
+        with LOCK:
+            ROWS[(case, cores)] = row
+            if row["status"] == "ok":
+                SINGLE_CACHE[case] = row["single"]
+            write()
+        if row["status"] == "ok":
+            previous = row["plan"]
+            print(
+                case,
+                f"{cores}c",
+                "speedup=",
+                round(row["speedup"], 4),
+                "makespan=",
+                row["makespan"],
+                "sec=",
+                round(row["seconds"], 1),
+                "selected=",
+                row["selected"][:80],
+                flush=True,
             )
-        )
+        else:
+            print(case, f"{cores}c", row["status"], row["error"][-300:], flush=True)
+    return case
 
 
-def calc_stats(rows):
-    ok = [r for r in rows if r.get("status") == "ok"]
-    sp = sorted(r["speedup"] for r in ok)
-    return {
-        "requested": len(rows),
-        "ok": len(ok),
-        "failed": len(rows) - len(ok),
-        "avg": (sum(sp) / len(sp)) if sp else None,
-        "median": (
-            (sp[(len(sp) - 1) // 2] + sp[len(sp) // 2]) / 2
-            if sp else None
-        ),
-        "gt4": sum(x >= 4 for x in sp),
-        "gt45": sum(x >= 4.5 for x in sp),
-        "min": min(sp) if sp else None,
-        "max": max(sp) if sp else None,
-    }
-
-
-# ---------------------------------------------------------
-# Run
-# ---------------------------------------------------------
-
-TOTAL_JOBS = len(CASES) * len(CORES)
-
-print("=" * 76)
+print("=" * 70)
 print("Solver       :", SOLVER)
 print("Solver name  :", SOLVER_NAME)
 print("Data dir     :", DATA)
@@ -496,76 +552,70 @@ print("Output root  :", OUTPUT_ROOT)
 print("Plan dir     :", OUT_DIR)
 print("CSV          :", CSV_PATH)
 print("Summary      :", SUMMARY_PATH)
-print("Mode         :", ARGS.mode)
 print("Cases        :", len(CASES))
-print("Core counts  :", CORES)
-print("Total jobs   :", TOTAL_JOBS)
+print("Cores        :", CORES)
+print("Time limit   :", ARGS.time_limit)
 print("Workers      :", MAX_WORKERS)
-print("=" * 76)
+print("Resumed rows :", len(ROWS))
+print("=" * 70)
 
-rows = []
-
-# Submit slow cases first for every selected core count.  CASES is already LPT
-# ordered; nesting case -> cores therefore gives every large case an early slot.
 with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
-    fs = {
-        ex.submit(run_one, case, cores): (case, cores)
-        for case in CASES
-        for cores in CORES
-    }
-
+    fs = [ex.submit(run_case, c) for c in CASES]
     for f in as_completed(fs):
-        r = f.result()
-        rows.append(r)
-
-        # Refresh CSV after every completed (case, core) job so interrupted runs
-        # still preserve all completed results.
-        write(rows)
-
-        if r["status"] == "ok":
-            print(
-                f"[{r['cores']}core]",
-                r["case"],
-                "speedup=",
-                round(r["speedup"], 4),
-                "selected=",
-                r["selected"],
-                "sec=",
-                round(r["seconds"], 1),
-                flush=True,
-            )
-        else:
-            print(
-                f"[{r['cores']}core]",
-                r["case"],
-                r["status"],
-                flush=True,
-            )
+        f.result()
 
 
 # ---------------------------------------------------------
 # Summary
 # ---------------------------------------------------------
 
-by_core = {}
-for cores in CORES:
-    core_rows = [r for r in rows if r.get("cores") == cores]
-    stats = calc_stats(core_rows)
-    stats["cases"] = [r["case"] for r in sorted(core_rows, key=lambda x: x["case"])]
-    by_core[str(cores)] = stats
+def stats(values):
+    values = sorted(values)
+    if not values:
+        return {"n": 0, "avg": None, "median": None, "min": None, "max": None,
+                "gt4": 0, "gt45": 0}
+    return {
+        "n": len(values),
+        "avg": sum(values) / len(values),
+        "median": (values[(len(values) - 1) // 2] + values[len(values) // 2]) / 2,
+        "min": values[0],
+        "max": values[-1],
+        "gt4": sum(x >= 4 for x in values),
+        "gt45": sum(x >= 4.5 for x in values),
+    }
 
-overall = calc_stats(rows)
+
+selected_rows = [ROWS[(c, k)] for c in CASES for k in CORES if (c, k) in ROWS]
+ok = [r for r in selected_rows if r["status"] == "ok"]
+per_cores = {
+    str(k): stats([r["speedup"] for r in ok if int(r["cores"]) == k])
+    for k in CORES
+}
+# Speedup curve over cases that finished every requested core count.
+complete = [
+    c for c in CASES
+    if all((c, k) in ROWS and ROWS[(c, k)]["status"] == "ok" for k in CORES)
+]
+curve = {"1": 1.0}
+for k in CORES:
+    values = [ROWS[(c, k)]["speedup"] for c in complete]
+    curve[str(k)] = sum(values) / len(values) if values else None
 
 summary = {
     "solver": SOLVER_NAME,
     "solver_path": SOLVER,
-    "mode": ARGS.mode,
-    "core_counts": CORES,
-    "requested_cases": len(CASES),
-    "requested_jobs": TOTAL_JOBS,
-    "completed_jobs": len(rows),
-    "overall": overall,
-    "by_core": by_core,
+    "time_limit": ARGS.time_limit,
+    "cores": CORES,
+    "requested": len(CASES) * len(CORES),
+    "ok": len(ok),
+    "failed": len(CASES) * len(CORES) - len(ok),
+    "cases": sorted(CASES),
+    "per_cores": per_cores,
+    "avg_speedup_curve_complete_cases": curve,
+    "complete_cases": len(complete),
+    "failed_items": sorted(
+        f"{r['case']}@{r['cores']}" for r in selected_rows if r["status"] != "ok"
+    ),
     "output_csv": CSV_PATH,
     "output_plans": OUT_DIR,
 }
@@ -573,14 +623,4 @@ summary = {
 with open(SUMMARY_PATH, "w", encoding="utf-8") as f:
     json.dump(summary, f, ensure_ascii=False, indent=2)
 
-print(
-    "SUMMARY",
-    json.dumps(summary, ensure_ascii=False),
-    flush=True,
-)
-
-
-# Examples:
-#   python run_all_cases.py V10_final.py ./V10_5core_result quick --cores 5
-#   python run_all_cases.py V10_final.py ./V10_2to5_result quick --cores 2-5
-#   python run_all_cases.py V10_final.py ./V10_result all --cores 2 3 4 5
+print("SUMMARY", json.dumps(summary, ensure_ascii=False), flush=True)
