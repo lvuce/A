@@ -1,0 +1,52 @@
+{
+  "solver": "A题_problem2_solver",
+  "solver_path": "/Users/xiaohan/code/shumo/A/A题_problem2_solver.py",
+  "time_limit": 300.0,
+  "cores": [
+    5
+  ],
+  "requested": 20,
+  "ok": 20,
+  "failed": 0,
+  "cases": [
+    "case_001",
+    "case_002",
+    "case_003",
+    "case_004",
+    "case_005",
+    "case_006",
+    "case_007",
+    "case_008",
+    "case_009",
+    "case_010",
+    "case_011",
+    "case_012",
+    "case_013",
+    "case_015",
+    "case_017",
+    "case_018",
+    "case_019",
+    "case_020",
+    "case_021",
+    "case_022"
+  ],
+  "per_cores": {
+    "5": {
+      "n": 20,
+      "avg": 4.710514672925788,
+      "median": 4.86980353691701,
+      "min": 2.529375975451684,
+      "max": 5.697114371972197,
+      "gt4": 18,
+      "gt45": 14
+    }
+  },
+  "avg_speedup_curve_complete_cases": {
+    "1": 1.0,
+    "5": 4.710514672925788
+  },
+  "complete_cases": 20,
+  "failed_items": [],
+  "output_csv": "/Users/xiaohan/code/shumo/A/results/p2_20cases/A题_problem2_solver_allcase_results.csv",
+  "output_plans": "/Users/xiaohan/code/shumo/A/results/p2_20cases/A题_problem2_solver_allcase_plans"
+}
