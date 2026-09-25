@@ -132,7 +132,7 @@ def parse_args():
     parser.add_argument(
         "--time-limit",
         type=float,
-        default=2000.0,
+        default=20000.0,
         help="Per-(case, core count) search budget in seconds (default 300).",
     )
     parser.add_argument(
