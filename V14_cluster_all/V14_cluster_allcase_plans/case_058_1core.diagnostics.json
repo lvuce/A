@@ -1,0 +1,31 @@
+{
+  "single": 4539717,
+  "best_makespan": 4361462,
+  "speedup": 1.0408704695810718,
+  "selected": "seed_plan",
+  "candidates": [],
+  "v14": {
+    "status": "generation_failed_seed_retained",
+    "seed_makespan": 4361462,
+    "evaluated": 0,
+    "single_seconds": 0.0,
+    "baseline_seconds": 10.706717847147956,
+    "candidate_generation_seconds": 0.0816608420573175,
+    "refinement_generation_seconds": 0.0,
+    "official_candidate_seconds": 0.0,
+    "policies": [],
+    "duration_weight": 0.55,
+    "seed_mode": "full_v10",
+    "refinement": {
+      "status": "not_attempted"
+    },
+    "error": "ValueError('fast probe limit: <=512 seed tasks and <=7000 compute ops')",
+    "evaluation_route": "no_merge_candidate",
+    "total_seconds": 580.0883336230181,
+    "seed_path": null,
+    "single_source": "official_evaluation"
+  },
+  "official_evaluations": 1,
+  "added_copy_bytes": 19636224,
+  "used_cores": 1
+}

@@ -1,0 +1,211 @@
+{
+  "single": 842996,
+  "best_makespan": 781525,
+  "speedup": 1.078655193371933,
+  "selected": "seed_plan",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 810000,
+      "speedup": 1.0407358024691358,
+      "seconds": 0.6787385989446193,
+      "gain_cycles": -28475,
+      "gain_pct": -3.64351748184639,
+      "added_copy_bytes": 5416448,
+      "actual_added_copy_bytes_saved": 417792,
+      "predicted_makespan": 977582.0533333333,
+      "estimated_external_input_read_bytes_saved": 434176,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 434176,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            0,
+            4
+          ],
+          "task": 0,
+          "predicted_local_makespan": 109648.6,
+          "measured_local_makespan": 109088.0,
+          "error_cycles": 560.6000000000058,
+          "error_pct": 0.5138970372543321
+        },
+        {
+          "old_tasks": [
+            1,
+            6
+          ],
+          "task": 1,
+          "predicted_local_makespan": 109797.45333333334,
+          "measured_local_makespan": 109461.0,
+          "error_cycles": 336.4533333333384,
+          "error_pct": 0.3073727933541064
+        }
+      ],
+      "gap_to_best_pct": 3.6435174818463922
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 781525,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.6410390450619161,
+    "candidate_generation_seconds": 0.16609119693748653,
+    "refinement_generation_seconds": 0.027000646106898785,
+    "official_candidate_seconds": 0.6787385989446193,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 0,
+            "b": 4,
+            "saved_bytes": 238080,
+            "score": 1388.8,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 109648.6
+          },
+          {
+            "a": 1,
+            "b": 6,
+            "saved_bytes": 196096,
+            "score": 1143.8933333333332,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 109797.45333333334
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 434176,
+        "predicted_makespan": 977582.0533333333,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 109648.6,
+          "1": 109797.45333333334,
+          "2": 55623.0,
+          "3": 56013.0,
+          "4": 55855.0,
+          "5": 45165.0,
+          "6": 45295.0,
+          "7": 45607.0,
+          "8": 44725.0,
+          "9": 44373.0,
+          "10": 46078.0,
+          "11": 46090.0,
+          "12": 44660.0,
+          "13": 45634.0,
+          "14": 45099.0,
+          "15": 45621.0,
+          "16": 45465.0,
+          "17": 45133.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 434176,
+        "estimated_boundary_transfer_bytes_saved": 0
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 0,
+            "b": 4,
+            "saved_bytes": 238080,
+            "score": 3571.2,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 109648.6
+          },
+          {
+            "a": 1,
+            "b": 6,
+            "saved_bytes": 196096,
+            "score": 2941.44,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 109797.45333333334
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 434176,
+        "predicted_makespan": 977582.0533333333,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 109648.6,
+          "1": 109797.45333333334,
+          "2": 55623.0,
+          "3": 56013.0,
+          "4": 55855.0,
+          "5": 45165.0,
+          "6": 45295.0,
+          "7": 45607.0,
+          "8": 44725.0,
+          "9": 44373.0,
+          "10": 46078.0,
+          "11": 46090.0,
+          "12": 44660.0,
+          "13": 45634.0,
+          "14": 45099.0,
+          "15": 45621.0,
+          "16": 45465.0,
+          "17": 45133.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 434176,
+        "estimated_boundary_transfer_bytes_saved": 0,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "full_v10",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 976685.0,
+      "proxy_after": 976685.0,
+      "predicted_task_durations": {
+        "0": 109088.0,
+        "1": 109461.0,
+        "2": 55623.0,
+        "3": 56013.0,
+        "4": 55855.0,
+        "5": 45165.0,
+        "6": 45295.0,
+        "7": 45607.0,
+        "8": 44725.0,
+        "9": 44373.0,
+        "10": 46078.0,
+        "11": 46090.0,
+        "12": 44660.0,
+        "13": 45634.0,
+        "14": 45099.0,
+        "15": 45621.0,
+        "16": 45465.0,
+        "17": 45133.0
+      }
+    },
+    "eligible_pairs": 62,
+    "shortlisted_pairs": 62,
+    "seed_tasks": 20,
+    "baseline_proxy": 981762.0,
+    "baseline_estimated_bytes": 8114626,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 59.134597916854545,
+    "seed_path": null,
+    "single_source": "official_evaluation"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 5834240,
+  "used_cores": 1
+}

@@ -1,0 +1,576 @@
+{
+  "single": 1414369,
+  "best_makespan": 1399977,
+  "speedup": 1.0102801688884888,
+  "selected": "v14_conservative",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 1399977,
+      "speedup": 1.0102801688884888,
+      "seconds": 1.2386645458173007,
+      "gain_cycles": 2788,
+      "gain_pct": 0.19875032525048744,
+      "added_copy_bytes": 10441202,
+      "actual_added_copy_bytes_saved": 3056836,
+      "predicted_makespan": 1606237.0033333334,
+      "estimated_external_input_read_bytes_saved": 3056836,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 3056836,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            18,
+            24
+          ],
+          "task": 16,
+          "predicted_local_makespan": 118672.84,
+          "measured_local_makespan": 119074.0,
+          "error_cycles": -401.1600000000035,
+          "error_pct": -0.33689974301695036
+        },
+        {
+          "old_tasks": [
+            16,
+            21
+          ],
+          "task": 14,
+          "predicted_local_makespan": 120221.36,
+          "measured_local_makespan": 120573.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.2916407487580133
+        },
+        {
+          "old_tasks": [
+            19,
+            20
+          ],
+          "task": 17,
+          "predicted_local_makespan": 122162.36,
+          "measured_local_makespan": 122514.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.2870202589091854
+        },
+        {
+          "old_tasks": [
+            17,
+            22
+          ],
+          "task": 15,
+          "predicted_local_makespan": 117665.4,
+          "measured_local_makespan": 117911.0,
+          "error_cycles": -245.60000000000582,
+          "error_pct": -0.20829269533801412
+        },
+        {
+          "old_tasks": [
+            26,
+            27
+          ],
+          "task": 20,
+          "predicted_local_makespan": 115423.36,
+          "measured_local_makespan": 115775.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.30372705679118933
+        },
+        {
+          "old_tasks": [
+            28,
+            29
+          ],
+          "task": 21,
+          "predicted_local_makespan": 119959.4,
+          "measured_local_makespan": 120207.0,
+          "error_cycles": -247.60000000000582,
+          "error_pct": -0.20597802124668765
+        },
+        {
+          "old_tasks": [
+            0,
+            1
+          ],
+          "task": 0,
+          "predicted_local_makespan": 51368.88333333333,
+          "measured_local_makespan": 51206.0,
+          "error_cycles": 162.8833333333314,
+          "error_pct": 0.3180942337486455
+        },
+        {
+          "old_tasks": [
+            2,
+            15
+          ],
+          "task": 1,
+          "predicted_local_makespan": 69132.4,
+          "measured_local_makespan": 69062.0,
+          "error_cycles": 70.39999999999418,
+          "error_pct": 0.10193738959195242
+        }
+      ],
+      "gap_to_best_pct": 0.0
+    },
+    {
+      "name": "v14_communication",
+      "makespan": 1400436,
+      "speedup": 1.0099490444404458,
+      "seconds": 1.2671219578478485,
+      "gain_cycles": 2329,
+      "gain_pct": 0.16602923511778522,
+      "added_copy_bytes": 10077270,
+      "actual_added_copy_bytes_saved": 3420768,
+      "predicted_makespan": 1602900.96,
+      "estimated_external_input_read_bytes_saved": 3420768,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 3420768,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            18,
+            24
+          ],
+          "task": 16,
+          "predicted_local_makespan": 118672.84,
+          "measured_local_makespan": 119074.0,
+          "error_cycles": -401.1600000000035,
+          "error_pct": -0.33689974301695036
+        },
+        {
+          "old_tasks": [
+            16,
+            21
+          ],
+          "task": 14,
+          "predicted_local_makespan": 120221.36,
+          "measured_local_makespan": 120573.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.2916407487580133
+        },
+        {
+          "old_tasks": [
+            19,
+            20
+          ],
+          "task": 17,
+          "predicted_local_makespan": 122162.36,
+          "measured_local_makespan": 122514.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.2870202589091854
+        },
+        {
+          "old_tasks": [
+            26,
+            27
+          ],
+          "task": 20,
+          "predicted_local_makespan": 115423.36,
+          "measured_local_makespan": 115775.0,
+          "error_cycles": -351.6399999999994,
+          "error_pct": -0.30372705679118933
+        },
+        {
+          "old_tasks": [
+            17,
+            22
+          ],
+          "task": 15,
+          "predicted_local_makespan": 117665.4,
+          "measured_local_makespan": 117911.0,
+          "error_cycles": -245.60000000000582,
+          "error_pct": -0.20829269533801412
+        },
+        {
+          "old_tasks": [
+            11,
+            12
+          ],
+          "task": 11,
+          "predicted_local_makespan": 115989.36,
+          "measured_local_makespan": 116350.0,
+          "error_cycles": -360.6399999999994,
+          "error_pct": -0.30996132359260803
+        },
+        {
+          "old_tasks": [
+            28,
+            29
+          ],
+          "task": 21,
+          "predicted_local_makespan": 119959.4,
+          "measured_local_makespan": 120207.0,
+          "error_cycles": -247.60000000000582,
+          "error_pct": -0.20597802124668765
+        },
+        {
+          "old_tasks": [
+            13,
+            15
+          ],
+          "task": 12,
+          "predicted_local_makespan": 87382.88,
+          "measured_local_makespan": 87389.0,
+          "error_cycles": -6.119999999995343,
+          "error_pct": -0.00700316973531605
+        }
+      ],
+      "gap_to_best_pct": 0.03278625291700532
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 1402765,
+    "evaluated": 2,
+    "single_seconds": 0.0,
+    "baseline_seconds": 1.2483471690211445,
+    "candidate_generation_seconds": 0.2701797659974545,
+    "refinement_generation_seconds": 0.0,
+    "official_candidate_seconds": 2.505786503665149,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 18,
+            "b": 24,
+            "saved_bytes": 540672,
+            "score": 3153.9199999999996,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 118672.84
+          },
+          {
+            "a": 16,
+            "b": 21,
+            "saved_bytes": 473088,
+            "score": 2759.68,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 120221.36
+          },
+          {
+            "a": 19,
+            "b": 20,
+            "saved_bytes": 473088,
+            "score": 2759.68,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 122162.36
+          },
+          {
+            "a": 17,
+            "b": 22,
+            "saved_bytes": 337920,
+            "score": 1971.1999999999998,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0,
+            "cache_risk_cycles": 0.0,
+            "duration": 117665.4
+          },
+          {
+            "a": 26,
+            "b": 27,
+            "saved_bytes": 473088,
+            "score": 1201.6605607476604,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1558.0194392523395,
+            "cache_risk_cycles": 0.0,
+            "duration": 115423.36
+          },
+          {
+            "a": 28,
+            "b": 29,
+            "saved_bytes": 337920,
+            "score": 663.8391959798987,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1307.360804020101,
+            "cache_risk_cycles": 0.0,
+            "duration": 119959.4
+          },
+          {
+            "a": 0,
+            "b": 1,
+            "saved_bytes": 176740,
+            "score": 604.1930114575143,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 426.79032187581885,
+            "cache_risk_cycles": 0.0,
+            "duration": 51368.88333333333
+          },
+          {
+            "a": 2,
+            "b": 15,
+            "saved_bytes": 244320,
+            "score": 104.76916890080452,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1320.4308310991955,
+            "cache_risk_cycles": 0.0,
+            "duration": 69132.4
+          }
+        ],
+        "tasks_before": 75,
+        "tasks_after": 67,
+        "estimated_bytes_saved": 3056836,
+        "predicted_makespan": 1606237.0033333334,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 51368.88333333333,
+          "1": 69132.4,
+          "2": 20829.0,
+          "3": 25474.0,
+          "4": 21108.0,
+          "5": 40751.0,
+          "6": 46033.0,
+          "7": 60428.0,
+          "8": 46016.0,
+          "9": 59802.0,
+          "10": 60150.0,
+          "11": 60176.0,
+          "12": 45135.0,
+          "13": 46071.0,
+          "14": 120221.36,
+          "15": 117665.4,
+          "16": 118672.84,
+          "17": 122162.36,
+          "18": 61318.0,
+          "19": 59487.0,
+          "20": 115423.36,
+          "21": 119959.4,
+          "22": 2088.0,
+          "23": 2088.0,
+          "24": 1395.0,
+          "25": 1395.0,
+          "26": 54.0,
+          "27": 41.0,
+          "28": 41.0,
+          "29": 41.0,
+          "30": 41.0,
+          "31": 41.0,
+          "32": 41.0,
+          "33": 41.0,
+          "34": 41.0,
+          "35": 41.0,
+          "36": 54.0,
+          "37": 54.0,
+          "38": 54.0,
+          "39": 54.0,
+          "40": 54.0,
+          "41": 54.0,
+          "42": 180.0,
+          "43": 180.0,
+          "44": 6366.0,
+          "45": 6366.0,
+          "46": 8062.0,
+          "47": 8041.0,
+          "48": 1566.0,
+          "49": 1552.0,
+          "50": 2463.0,
+          "51": 2463.0,
+          "52": 8191.0,
+          "53": 8170.0,
+          "54": 6366.0,
+          "55": 6366.0,
+          "56": 2463.0,
+          "57": 2075.0,
+          "58": 1566.0,
+          "59": 1552.0,
+          "60": 8166.0,
+          "61": 8507.0,
+          "62": 6220.0,
+          "63": 6220.0,
+          "64": 1344.0,
+          "65": 54.0,
+          "66": 41.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 3056836,
+        "estimated_boundary_transfer_bytes_saved": 0
+      },
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 18,
+            "b": 24,
+            "saved_bytes": 540672,
+            "score": 8110.08,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 118672.84
+          },
+          {
+            "a": 16,
+            "b": 21,
+            "saved_bytes": 473088,
+            "score": 7096.320000000001,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 120221.36
+          },
+          {
+            "a": 19,
+            "b": 20,
+            "saved_bytes": 473088,
+            "score": 7096.320000000001,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 122162.36
+          },
+          {
+            "a": 26,
+            "b": 27,
+            "saved_bytes": 473088,
+            "score": 6083.60736448598,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1558.0194392523395,
+            "cache_risk_cycles": 0.0,
+            "duration": 115423.36
+          },
+          {
+            "a": 17,
+            "b": 22,
+            "saved_bytes": 337920,
+            "score": 5068.8,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0,
+            "cache_risk_cycles": 0.0,
+            "duration": 117665.4
+          },
+          {
+            "a": 11,
+            "b": 12,
+            "saved_bytes": 473088,
+            "score": 4637.764555371897,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 3782.3929917355445,
+            "cache_risk_cycles": 0.0,
+            "duration": 115989.36
+          },
+          {
+            "a": 28,
+            "b": 29,
+            "saved_bytes": 337920,
+            "score": 4219.015477386934,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1307.360804020101,
+            "cache_risk_cycles": 0.0,
+            "duration": 119959.4
+          },
+          {
+            "a": 13,
+            "b": 15,
+            "saved_bytes": 311904,
+            "score": 3487.038050101295,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1833.1106921518544,
+            "cache_risk_cycles": 0.0,
+            "duration": 87382.88
+          }
+        ],
+        "tasks_before": 75,
+        "tasks_after": 67,
+        "estimated_bytes_saved": 3420768,
+        "predicted_makespan": 1602900.96,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 26124.0,
+          "1": 26865.0,
+          "2": 26265.0,
+          "3": 20829.0,
+          "4": 25474.0,
+          "5": 21108.0,
+          "6": 40751.0,
+          "7": 46033.0,
+          "8": 60428.0,
+          "9": 46016.0,
+          "10": 59802.0,
+          "11": 115989.36,
+          "12": 87382.88,
+          "13": 46071.0,
+          "14": 120221.36,
+          "15": 117665.4,
+          "16": 118672.84,
+          "17": 122162.36,
+          "18": 61318.0,
+          "19": 59487.0,
+          "20": 115423.36,
+          "21": 119959.4,
+          "22": 2088.0,
+          "23": 2088.0,
+          "24": 1395.0,
+          "25": 1395.0,
+          "26": 54.0,
+          "27": 41.0,
+          "28": 41.0,
+          "29": 41.0,
+          "30": 41.0,
+          "31": 41.0,
+          "32": 41.0,
+          "33": 41.0,
+          "34": 41.0,
+          "35": 41.0,
+          "36": 54.0,
+          "37": 54.0,
+          "38": 54.0,
+          "39": 54.0,
+          "40": 54.0,
+          "41": 54.0,
+          "42": 180.0,
+          "43": 180.0,
+          "44": 6366.0,
+          "45": 6366.0,
+          "46": 8062.0,
+          "47": 8041.0,
+          "48": 1566.0,
+          "49": 1552.0,
+          "50": 2463.0,
+          "51": 2463.0,
+          "52": 8191.0,
+          "53": 8170.0,
+          "54": 6366.0,
+          "55": 6366.0,
+          "56": 2463.0,
+          "57": 2075.0,
+          "58": 1566.0,
+          "59": 1552.0,
+          "60": 8166.0,
+          "61": 8507.0,
+          "62": 6220.0,
+          "63": 6220.0,
+          "64": 1344.0,
+          "65": 54.0,
+          "66": 41.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 3420768,
+        "estimated_boundary_transfer_bytes_saved": 0
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "full_v10",
+    "refinement": {
+      "status": "budget_reserved_for_distinct_partitions"
+    },
+    "eligible_pairs": 306,
+    "shortlisted_pairs": 96,
+    "seed_tasks": 75,
+    "baseline_proxy": 1635058.0,
+    "baseline_estimated_bytes": 15683078,
+    "unique_partitions": 2,
+    "evaluation_route": "two_distinct_partitions",
+    "total_seconds": 130.98790681897663,
+    "seed_path": null,
+    "single_source": "official_evaluation"
+  },
+  "official_evaluations": 3,
+  "added_copy_bytes": 10441202,
+  "used_cores": 1
+}
