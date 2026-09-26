@@ -1,0 +1,344 @@
+{
+  "single": 276455.0,
+  "best_makespan": 110666,
+  "speedup": 2.498102398207218,
+  "selected": "v14_conservative",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 110666,
+      "speedup": 2.498102398207218,
+      "seconds": 0.1443710579769686,
+      "gain_cycles": 694,
+      "gain_pct": 0.6232040229885057,
+      "added_copy_bytes": 2329792,
+      "actual_added_copy_bytes_saved": 51200,
+      "predicted_makespan": 103844.36,
+      "estimated_external_input_read_bytes_saved": 0,
+      "estimated_boundary_transfer_bytes_saved": 51200,
+      "estimated_bytes_saved": 51200,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            4,
+            7
+          ],
+          "task": 4,
+          "predicted_local_makespan": 8972.04,
+          "measured_local_makespan": 8914.0,
+          "error_cycles": 58.04000000000087,
+          "error_pct": 0.6511106125196419
+        },
+        {
+          "old_tasks": [
+            5,
+            8
+          ],
+          "task": 5,
+          "predicted_local_makespan": 6125.36,
+          "measured_local_makespan": 6072.0,
+          "error_cycles": 53.35999999999967,
+          "error_pct": 0.8787878787878733
+        },
+        {
+          "old_tasks": [
+            33,
+            36
+          ],
+          "task": 31,
+          "predicted_local_makespan": 30058.36,
+          "measured_local_makespan": 29983.0,
+          "error_cycles": 75.36000000000058,
+          "error_pct": 0.2513424273755147
+        },
+        {
+          "old_tasks": [
+            35,
+            38
+          ],
+          "task": 33,
+          "predicted_local_makespan": 20388.906666666666,
+          "measured_local_makespan": 20334.0,
+          "error_cycles": 54.90666666666584,
+          "error_pct": 0.2700239336415159
+        }
+      ],
+      "gap_to_best_pct": 0.0
+    },
+    {
+      "name": "v14_communication",
+      "makespan": 119186,
+      "speedup": 2.319525783229574,
+      "seconds": 0.160914387088269,
+      "gain_cycles": -7826,
+      "gain_pct": -7.027658045977011,
+      "added_copy_bytes": 1920192,
+      "actual_added_copy_bytes_saved": 460800,
+      "predicted_makespan": 114921.0,
+      "estimated_external_input_read_bytes_saved": 442368,
+      "estimated_boundary_transfer_bytes_saved": 18432,
+      "estimated_bytes_saved": 460800,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            24,
+            26
+          ],
+          "task": 21,
+          "predicted_local_makespan": 9641.32,
+          "measured_local_makespan": 8544.0,
+          "error_cycles": 1097.3199999999997,
+          "error_pct": 12.843164794007487
+        },
+        {
+          "old_tasks": [
+            16,
+            17
+          ],
+          "task": 15,
+          "predicted_local_makespan": 9497.32,
+          "measured_local_makespan": 8382.0,
+          "error_cycles": 1115.3199999999997,
+          "error_pct": 13.306132188021948
+        },
+        {
+          "old_tasks": [
+            18,
+            20
+          ],
+          "task": 16,
+          "predicted_local_makespan": 9641.32,
+          "measured_local_makespan": 8544.0,
+          "error_cycles": 1097.3199999999997,
+          "error_pct": 12.843164794007487
+        },
+        {
+          "old_tasks": [
+            4,
+            7
+          ],
+          "task": 4,
+          "predicted_local_makespan": 8972.04,
+          "measured_local_makespan": 8914.0,
+          "error_cycles": 58.04000000000087,
+          "error_pct": 0.6511106125196419
+        }
+      ],
+      "gap_to_best_pct": 7.698841559286507
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 111360,
+    "evaluated": 2,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.14679441298358142,
+    "candidate_generation_seconds": 0.029804075020365417,
+    "refinement_generation_seconds": 0.0,
+    "official_candidate_seconds": 0.3052854450652376,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 4,
+            "b": 7,
+            "saved_bytes": 18432,
+            "score": 357.52,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 8972.04
+          },
+          {
+            "a": 5,
+            "b": 8,
+            "saved_bytes": 12288,
+            "score": 321.68,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 6125.36
+          },
+          {
+            "a": 33,
+            "b": 36,
+            "saved_bytes": 12288,
+            "score": 321.68,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 30058.36
+          },
+          {
+            "a": 35,
+            "b": 38,
+            "saved_bytes": 8192,
+            "score": 297.78666666666663,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 20388.906666666666
+          }
+        ],
+        "tasks_before": 39,
+        "tasks_after": 35,
+        "estimated_bytes_saved": 51200,
+        "predicted_makespan": 103844.36,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 20908.0,
+          "1": 20908.0,
+          "2": 13948.0,
+          "3": 3878.0,
+          "4": 8972.04,
+          "5": 6125.36,
+          "6": 5263.0,
+          "7": 4230.0,
+          "8": 4230.0,
+          "9": 3030.0,
+          "10": 5930.0,
+          "11": 5930.0,
+          "12": 4353.0,
+          "13": 6016.0,
+          "14": 6016.0,
+          "15": 4833.0,
+          "16": 6106.0,
+          "17": 6106.0,
+          "18": 4887.0,
+          "19": 6106.0,
+          "20": 6106.0,
+          "21": 4887.0,
+          "22": 6106.0,
+          "23": 6106.0,
+          "24": 4887.0,
+          "25": 3707.0,
+          "26": 3707.0,
+          "27": 2981.0,
+          "28": 4436.0,
+          "29": 4436.0,
+          "30": 3158.0,
+          "31": 30058.36,
+          "32": 4394.0,
+          "33": 20388.906666666666,
+          "34": 25777.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 0,
+        "estimated_boundary_transfer_bytes_saved": 51200
+      },
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 24,
+            "b": 26,
+            "saved_bytes": 147456,
+            "score": 966.8878284083924,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 1915.3110332178574,
+            "cache_risk_cycles": 0.0,
+            "duration": 9641.32
+          },
+          {
+            "a": 16,
+            "b": 17,
+            "saved_bytes": 147456,
+            "score": 743.2878156874438,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 2259.3110527885474,
+            "cache_risk_cycles": 0.0,
+            "duration": 9497.32
+          },
+          {
+            "a": 18,
+            "b": 20,
+            "saved_bytes": 147456,
+            "score": 589.8507604092315,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 2495.368060908874,
+            "cache_risk_cycles": 0.0,
+            "duration": 9641.32
+          },
+          {
+            "a": 4,
+            "b": 7,
+            "saved_bytes": 18432,
+            "score": 526.48,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 8972.04
+          }
+        ],
+        "tasks_before": 39,
+        "tasks_after": 35,
+        "estimated_bytes_saved": 460800,
+        "predicted_makespan": 114921.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 20908.0,
+          "1": 20908.0,
+          "2": 13948.0,
+          "3": 3878.0,
+          "4": 8972.04,
+          "5": 2644.0,
+          "6": 5263.0,
+          "7": 3594.0,
+          "8": 4230.0,
+          "9": 4230.0,
+          "10": 3030.0,
+          "11": 5930.0,
+          "12": 5930.0,
+          "13": 4353.0,
+          "14": 6016.0,
+          "15": 9497.32,
+          "16": 9641.32,
+          "17": 6106.0,
+          "18": 6106.0,
+          "19": 6106.0,
+          "20": 4887.0,
+          "21": 9641.32,
+          "22": 6106.0,
+          "23": 3707.0,
+          "24": 3707.0,
+          "25": 2981.0,
+          "26": 4436.0,
+          "27": 4436.0,
+          "28": 3158.0,
+          "29": 4394.0,
+          "30": 4394.0,
+          "31": 3130.0,
+          "32": 25777.0,
+          "33": 25777.0,
+          "34": 17334.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 442368,
+        "estimated_boundary_transfer_bytes_saved": 18432
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "budget_reserved_for_distinct_partitions"
+    },
+    "eligible_pairs": 90,
+    "shortlisted_pairs": 90,
+    "seed_tasks": 39,
+    "baseline_proxy": 105857.0,
+    "baseline_estimated_bytes": 3442464,
+    "unique_partitions": 2,
+    "evaluation_route": "two_distinct_partitions",
+    "total_seconds": 0.4845583599526435,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_046_4core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 3,
+  "added_copy_bytes": 2329792,
+  "used_cores": 3
+}

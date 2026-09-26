@@ -1,0 +1,147 @@
+{
+  "single": 25144.0,
+  "best_makespan": 17303,
+  "speedup": 1.4531584118360978,
+  "selected": "v14_conservative",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 17303,
+      "speedup": 1.4531584118360978,
+      "seconds": 0.14370929298456758,
+      "gain_cycles": 100,
+      "gain_pct": 0.5746135723725795,
+      "added_copy_bytes": 258614,
+      "actual_added_copy_bytes_saved": 256,
+      "predicted_makespan": 22431.653333333335,
+      "estimated_external_input_read_bytes_saved": 0,
+      "estimated_boundary_transfer_bytes_saved": 256,
+      "estimated_bytes_saved": 256,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            6,
+            7
+          ],
+          "task": 6,
+          "predicted_local_makespan": 5448.653333333334,
+          "measured_local_makespan": 5436.0,
+          "error_cycles": 12.653333333333649,
+          "error_pct": 0.2327691930340995
+        }
+      ],
+      "gap_to_best_pct": 0.0
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 17403,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.1480165149550885,
+    "candidate_generation_seconds": 0.027680044062435627,
+    "refinement_generation_seconds": 0.00577509799040854,
+    "official_candidate_seconds": 0.14370929298456758,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 6,
+            "b": 7,
+            "saved_bytes": 256,
+            "score": 26.493333333333332,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 5448.653333333334
+          }
+        ],
+        "tasks_before": 8,
+        "tasks_after": 7,
+        "estimated_bytes_saved": 256,
+        "predicted_makespan": 22431.653333333335,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 96.0,
+          "1": 2608.0,
+          "2": 3563.0,
+          "3": 3961.0,
+          "4": 8593.0,
+          "5": 9214.0,
+          "6": 5448.653333333334
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 0,
+        "estimated_boundary_transfer_bytes_saved": 256
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 6,
+            "b": 7,
+            "saved_bytes": 256,
+            "score": 28.84,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 5448.653333333334
+          }
+        ],
+        "tasks_before": 8,
+        "tasks_after": 7,
+        "estimated_bytes_saved": 256,
+        "predicted_makespan": 22431.653333333335,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 96.0,
+          "1": 2608.0,
+          "2": 3563.0,
+          "3": 3961.0,
+          "4": 8593.0,
+          "5": 9214.0,
+          "6": 5448.653333333334
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 0,
+        "estimated_boundary_transfer_bytes_saved": 256,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 22419.0,
+      "proxy_after": 22419.0,
+      "predicted_task_durations": {
+        "0": 96.0,
+        "1": 2608.0,
+        "2": 3563.0,
+        "3": 3961.0,
+        "4": 8593.0,
+        "5": 9214.0,
+        "6": 5436.0
+      }
+    },
+    "eligible_pairs": 17,
+    "shortlisted_pairs": 17,
+    "seed_tasks": 8,
+    "baseline_proxy": 22534.0,
+    "baseline_estimated_bytes": 384924,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 0.3261955870548263,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_069_2core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 258614,
+  "used_cores": 2
+}

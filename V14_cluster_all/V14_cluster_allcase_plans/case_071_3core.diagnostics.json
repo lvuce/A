@@ -1,0 +1,217 @@
+{
+  "single": 18919.0,
+  "best_makespan": 10215,
+  "speedup": 1.8520802741067057,
+  "selected": "seed_plan",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 12110,
+      "speedup": 1.562262592898431,
+      "seconds": 0.09977958002127707,
+      "gain_cycles": -1895,
+      "gain_pct": -18.551150269211945,
+      "added_copy_bytes": 299688,
+      "actual_added_copy_bytes_saved": 4740,
+      "predicted_makespan": 13572.275,
+      "estimated_external_input_read_bytes_saved": 4,
+      "estimated_boundary_transfer_bytes_saved": 4736,
+      "estimated_bytes_saved": 4740,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            14,
+            20
+          ],
+          "task": 14,
+          "predicted_local_makespan": 3299.275,
+          "measured_local_makespan": 3276.0,
+          "error_cycles": 23.27500000000009,
+          "error_pct": 0.7104700854700883
+        },
+        {
+          "old_tasks": [
+            16,
+            21
+          ],
+          "task": 16,
+          "predicted_local_makespan": 3296.275,
+          "measured_local_makespan": 3273.0,
+          "error_cycles": 23.27500000000009,
+          "error_pct": 0.7111212954476044
+        }
+      ],
+      "gap_to_best_pct": 18.551150269211945
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 10215,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.11527878500055522,
+    "candidate_generation_seconds": 0.03349360602442175,
+    "refinement_generation_seconds": 0.004734005895443261,
+    "official_candidate_seconds": 0.09977958002127707,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 14,
+            "b": 20,
+            "saved_bytes": 2370,
+            "score": 263.825,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 3299.275
+          },
+          {
+            "a": 16,
+            "b": 21,
+            "saved_bytes": 2370,
+            "score": 263.825,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 3296.275
+          }
+        ],
+        "tasks_before": 22,
+        "tasks_after": 20,
+        "estimated_bytes_saved": 4740,
+        "predicted_makespan": 13572.275,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 814.0,
+          "1": 438.0,
+          "2": 129.0,
+          "3": 118.0,
+          "4": 96.0,
+          "5": 96.0,
+          "6": 1091.0,
+          "7": 1091.0,
+          "8": 1091.0,
+          "9": 760.0,
+          "10": 760.0,
+          "11": 4459.0,
+          "12": 4443.0,
+          "13": 4459.0,
+          "14": 3299.275,
+          "15": 131.0,
+          "16": 3296.275,
+          "17": 131.0,
+          "18": 98.0,
+          "19": 98.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 4,
+        "estimated_boundary_transfer_bytes_saved": 4736
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 14,
+            "b": 20,
+            "saved_bytes": 2370,
+            "score": 285.55,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 3299.275
+          },
+          {
+            "a": 16,
+            "b": 21,
+            "saved_bytes": 2370,
+            "score": 285.55,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 3296.275
+          }
+        ],
+        "tasks_before": 22,
+        "tasks_after": 20,
+        "estimated_bytes_saved": 4740,
+        "predicted_makespan": 13572.275,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 814.0,
+          "1": 438.0,
+          "2": 129.0,
+          "3": 118.0,
+          "4": 96.0,
+          "5": 96.0,
+          "6": 1091.0,
+          "7": 1091.0,
+          "8": 1091.0,
+          "9": 760.0,
+          "10": 760.0,
+          "11": 4459.0,
+          "12": 4443.0,
+          "13": 4459.0,
+          "14": 3299.275,
+          "15": 131.0,
+          "16": 3296.275,
+          "17": 131.0,
+          "18": 98.0,
+          "19": 98.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 4,
+        "estimated_boundary_transfer_bytes_saved": 4736,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 13549.0,
+      "proxy_after": 13549.0,
+      "predicted_task_durations": {
+        "0": 814.0,
+        "1": 438.0,
+        "2": 129.0,
+        "3": 118.0,
+        "4": 96.0,
+        "5": 96.0,
+        "6": 1091.0,
+        "7": 1091.0,
+        "8": 1091.0,
+        "9": 760.0,
+        "10": 760.0,
+        "11": 4459.0,
+        "12": 4443.0,
+        "13": 4459.0,
+        "14": 3276.0,
+        "15": 131.0,
+        "16": 3273.0,
+        "17": 131.0,
+        "18": 98.0,
+        "19": 98.0
+      }
+    },
+    "eligible_pairs": 62,
+    "shortlisted_pairs": 62,
+    "seed_tasks": 22,
+    "baseline_proxy": 11796.0,
+    "baseline_estimated_bytes": 425874,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 0.2541441470384598,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_071_3core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 304428,
+  "used_cores": 3
+}

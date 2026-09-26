@@ -1,0 +1,49 @@
+{
+  "single": 263949.0,
+  "best_makespan": 66982,
+  "speedup": 3.9405959810098237,
+  "selected": "seed_plan",
+  "candidates": [],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 66982,
+    "evaluated": 0,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.41341841395478696,
+    "candidate_generation_seconds": 0.017626674030907452,
+    "refinement_generation_seconds": 0.0,
+    "official_candidate_seconds": 0.0,
+    "policies": [
+      {
+        "status": "no_positive_safe_merge",
+        "cycle_rejections": 0,
+        "name": "conservative",
+        "communication_weight": 0.35
+      },
+      {
+        "status": "no_positive_safe_merge",
+        "cycle_rejections": 0,
+        "name": "communication",
+        "communication_weight": 0.9
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "not_attempted"
+    },
+    "eligible_pairs": 0,
+    "shortlisted_pairs": 0,
+    "seed_tasks": 4,
+    "baseline_proxy": 76409.0,
+    "baseline_estimated_bytes": 2551808,
+    "unique_partitions": 0,
+    "evaluation_route": "no_merge_candidate",
+    "total_seconds": 0.4310599759919569,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_013_4core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 1,
+  "added_copy_bytes": 24576,
+  "used_cores": 4
+}

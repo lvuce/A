@@ -1,0 +1,211 @@
+{
+  "single": 177362.0,
+  "best_makespan": 42141,
+  "speedup": 4.20877530196246,
+  "selected": "seed_plan",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 43877,
+      "speedup": 4.0422544841260795,
+      "seconds": 0.15170790499541909,
+      "gain_cycles": -1736,
+      "gain_pct": -4.119503571343822,
+      "added_copy_bytes": 626688,
+      "actual_added_copy_bytes_saved": 196608,
+      "predicted_makespan": 44724.0,
+      "estimated_external_input_read_bytes_saved": 196608,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 196608,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            3,
+            5
+          ],
+          "task": 3,
+          "predicted_local_makespan": 23638.88,
+          "measured_local_makespan": 23090.0,
+          "error_cycles": 548.880000000001,
+          "error_pct": 2.3771329579904763
+        },
+        {
+          "old_tasks": [
+            4,
+            6
+          ],
+          "task": 4,
+          "predicted_local_makespan": 23599.88,
+          "measured_local_makespan": 23051.0,
+          "error_cycles": 548.880000000001,
+          "error_pct": 2.3811548305930375
+        }
+      ],
+      "gap_to_best_pct": 4.11950357134383
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 42141,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.15781462693121284,
+    "candidate_generation_seconds": 0.01406574493739754,
+    "refinement_generation_seconds": 0.006959132966585457,
+    "official_candidate_seconds": 0.15170790499541909,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 3,
+            "b": 5,
+            "saved_bytes": 98304,
+            "score": 573.4399999999999,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 23638.88
+          },
+          {
+            "a": 4,
+            "b": 6,
+            "saved_bytes": 98304,
+            "score": 573.4399999999999,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 23599.88
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 196608,
+        "predicted_makespan": 44724.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 31824.0,
+          "1": 21916.0,
+          "2": 12817.0,
+          "3": 23638.88,
+          "4": 23599.88,
+          "5": 12244.0,
+          "6": 12283.0,
+          "7": 12270.0,
+          "8": 5858.0,
+          "9": 5484.0,
+          "10": 6031.0,
+          "11": 5517.0,
+          "12": 4969.0,
+          "13": 4956.0,
+          "14": 4956.0,
+          "15": 4943.0,
+          "16": 8923.0,
+          "17": 8764.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 196608,
+        "estimated_boundary_transfer_bytes_saved": 0
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 3,
+            "b": 5,
+            "saved_bytes": 98304,
+            "score": 1474.5600000000002,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 23638.88
+          },
+          {
+            "a": 4,
+            "b": 6,
+            "saved_bytes": 98304,
+            "score": 1474.5600000000002,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 23599.88
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 196608,
+        "predicted_makespan": 44724.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 31824.0,
+          "1": 21916.0,
+          "2": 12817.0,
+          "3": 23638.88,
+          "4": 23599.88,
+          "5": 12244.0,
+          "6": 12283.0,
+          "7": 12270.0,
+          "8": 5858.0,
+          "9": 5484.0,
+          "10": 6031.0,
+          "11": 5517.0,
+          "12": 4969.0,
+          "13": 4956.0,
+          "14": 4956.0,
+          "15": 4943.0,
+          "16": 8923.0,
+          "17": 8764.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 196608,
+        "estimated_boundary_transfer_bytes_saved": 0,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 44724.0,
+      "proxy_after": 44724.0,
+      "predicted_task_durations": {
+        "0": 31824.0,
+        "1": 21916.0,
+        "2": 12817.0,
+        "3": 23090.0,
+        "4": 23051.0,
+        "5": 12244.0,
+        "6": 12283.0,
+        "7": 12270.0,
+        "8": 5858.0,
+        "9": 5484.0,
+        "10": 6031.0,
+        "11": 5517.0,
+        "12": 4969.0,
+        "13": 4956.0,
+        "14": 4956.0,
+        "15": 4943.0,
+        "16": 8923.0,
+        "17": 8764.0
+      }
+    },
+    "eligible_pairs": 26,
+    "shortlisted_pairs": 26,
+    "seed_tasks": 20,
+    "baseline_proxy": 45874.0,
+    "baseline_estimated_bytes": 1707910,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 0.3317434979835525,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_015_5core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 823296,
+  "used_cores": 5
+}

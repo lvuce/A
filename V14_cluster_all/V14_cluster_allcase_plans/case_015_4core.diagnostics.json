@@ -1,0 +1,211 @@
+{
+  "single": 177362.0,
+  "best_makespan": 47971,
+  "speedup": 3.6972754372433343,
+  "selected": "seed_plan",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 50496,
+      "speedup": 3.512397021546261,
+      "seconds": 0.14567211095709354,
+      "gain_cycles": -2525,
+      "gain_pct": -5.2635967563736425,
+      "added_copy_bytes": 686592,
+      "actual_added_copy_bytes_saved": 210432,
+      "predicted_makespan": 54002.0,
+      "estimated_external_input_read_bytes_saved": 210432,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 210432,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            1,
+            8
+          ],
+          "task": 1,
+          "predicted_local_makespan": 34573.52,
+          "measured_local_makespan": 34000.0,
+          "error_cycles": 573.5199999999968,
+          "error_pct": 1.6868235294117553
+        },
+        {
+          "old_tasks": [
+            5,
+            9
+          ],
+          "task": 5,
+          "predicted_local_makespan": 24979.52,
+          "measured_local_makespan": 24406.0,
+          "error_cycles": 573.5200000000004,
+          "error_pct": 2.349913955584694
+        }
+      ],
+      "gap_to_best_pct": 5.263596756373645
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 47971,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.1449611869174987,
+    "candidate_generation_seconds": 0.01683483098167926,
+    "refinement_generation_seconds": 0.006895908969454467,
+    "official_candidate_seconds": 0.14567211095709354,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 1,
+            "b": 8,
+            "saved_bytes": 105216,
+            "score": 613.76,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0,
+            "cache_risk_cycles": 0.0,
+            "duration": 34573.52
+          },
+          {
+            "a": 5,
+            "b": 9,
+            "saved_bytes": 105216,
+            "score": 613.76,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 24979.52
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 210432,
+        "predicted_makespan": 54002.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 32487.0,
+          "1": 34573.52,
+          "2": 13378.0,
+          "3": 12844.0,
+          "4": 12831.0,
+          "5": 24979.52,
+          "6": 12844.0,
+          "7": 12831.0,
+          "8": 6539.0,
+          "9": 6050.0,
+          "10": 6596.0,
+          "11": 6250.0,
+          "12": 5991.0,
+          "13": 5952.0,
+          "14": 5952.0,
+          "15": 6159.0,
+          "16": 2419.0,
+          "17": 2393.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 210432,
+        "estimated_boundary_transfer_bytes_saved": 0
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 1,
+            "b": 8,
+            "saved_bytes": 105216,
+            "score": 1578.2400000000002,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0,
+            "cache_risk_cycles": 0.0,
+            "duration": 34573.52
+          },
+          {
+            "a": 5,
+            "b": 9,
+            "saved_bytes": 105216,
+            "score": 1578.2400000000002,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 24979.52
+          }
+        ],
+        "tasks_before": 20,
+        "tasks_after": 18,
+        "estimated_bytes_saved": 210432,
+        "predicted_makespan": 54002.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 32487.0,
+          "1": 34573.52,
+          "2": 13378.0,
+          "3": 12844.0,
+          "4": 12831.0,
+          "5": 24979.52,
+          "6": 12844.0,
+          "7": 12831.0,
+          "8": 6539.0,
+          "9": 6050.0,
+          "10": 6596.0,
+          "11": 6250.0,
+          "12": 5991.0,
+          "13": 5952.0,
+          "14": 5952.0,
+          "15": 6159.0,
+          "16": 2419.0,
+          "17": 2393.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 210432,
+        "estimated_boundary_transfer_bytes_saved": 0,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 54002.0,
+      "proxy_after": 54002.0,
+      "predicted_task_durations": {
+        "0": 32487.0,
+        "1": 34000.0,
+        "2": 13378.0,
+        "3": 12844.0,
+        "4": 12831.0,
+        "5": 24406.0,
+        "6": 12844.0,
+        "7": 12831.0,
+        "8": 6539.0,
+        "9": 6050.0,
+        "10": 6596.0,
+        "11": 6250.0,
+        "12": 5991.0,
+        "13": 5952.0,
+        "14": 5952.0,
+        "15": 6159.0,
+        "16": 2419.0,
+        "17": 2393.0
+      }
+    },
+    "eligible_pairs": 26,
+    "shortlisted_pairs": 26,
+    "seed_tasks": 20,
+    "baseline_proxy": 54327.0,
+    "baseline_estimated_bytes": 1781638,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 0.315625153016299,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_015_4core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 897024,
+  "used_cores": 4
+}

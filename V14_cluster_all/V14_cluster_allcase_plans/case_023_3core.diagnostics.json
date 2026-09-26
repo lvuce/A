@@ -1,0 +1,159 @@
+{
+  "single": 122614.0,
+  "best_makespan": 39614,
+  "speedup": 3.0952188620184784,
+  "selected": "seed_plan",
+  "candidates": [
+    {
+      "name": "v14_conservative",
+      "makespan": 41079,
+      "speedup": 2.984834100148494,
+      "seconds": 0.12250566703733057,
+      "gain_cycles": -1465,
+      "gain_pct": -3.6981875094663503,
+      "added_copy_bytes": 355008,
+      "actual_added_copy_bytes_saved": 74016,
+      "predicted_makespan": 50046.0,
+      "estimated_external_input_read_bytes_saved": 74016,
+      "estimated_boundary_transfer_bytes_saved": 0,
+      "estimated_bytes_saved": 74016,
+      "merged_task_duration_errors": [
+        {
+          "old_tasks": [
+            6,
+            9
+          ],
+          "task": 6,
+          "predicted_local_makespan": 21871.52,
+          "measured_local_makespan": 21320.0,
+          "error_cycles": 551.5200000000004,
+          "error_pct": 2.5868667917448427
+        }
+      ],
+      "gap_to_best_pct": 3.698187509466355
+    }
+  ],
+  "v14": {
+    "status": "ok",
+    "seed_makespan": 39614,
+    "evaluated": 1,
+    "single_seconds": 0.0,
+    "baseline_seconds": 0.1240576570853591,
+    "candidate_generation_seconds": 0.017199471942149103,
+    "refinement_generation_seconds": 0.005877243005670607,
+    "official_candidate_seconds": 0.12250566703733057,
+    "policies": [
+      {
+        "status": "evaluated",
+        "merges": [
+          {
+            "a": 6,
+            "b": 9,
+            "saved_bytes": 74016,
+            "score": 431.76,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 21871.52
+          }
+        ],
+        "tasks_before": 12,
+        "tasks_after": 11,
+        "estimated_bytes_saved": 74016,
+        "predicted_makespan": 50046.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 15151.0,
+          "1": 13801.0,
+          "2": 14861.0,
+          "3": 11601.0,
+          "4": 11638.0,
+          "5": 11902.0,
+          "6": 21871.52,
+          "7": 11138.0,
+          "8": 11437.0,
+          "9": 9647.0,
+          "10": 9719.0
+        },
+        "name": "conservative",
+        "communication_weight": 0.35,
+        "estimated_external_input_read_bytes_saved": 74016,
+        "estimated_boundary_transfer_bytes_saved": 0
+      },
+      {
+        "status": "duplicate_partition",
+        "merges": [
+          {
+            "a": 6,
+            "b": 9,
+            "saved_bytes": 74016,
+            "score": 1110.2400000000002,
+            "parallel_overlap_cycles": 0.0,
+            "release_penalty_cycles": 0.0,
+            "cache_risk_cycles": 0.0,
+            "duration": 21871.52
+          }
+        ],
+        "tasks_before": 12,
+        "tasks_after": 11,
+        "estimated_bytes_saved": 74016,
+        "predicted_makespan": 50046.0,
+        "cycle_rejections": 0,
+        "duration_weight": 0.55,
+        "predicted_task_durations": {
+          "0": 15151.0,
+          "1": 13801.0,
+          "2": 14861.0,
+          "3": 11601.0,
+          "4": 11638.0,
+          "5": 11902.0,
+          "6": 21871.52,
+          "7": 11138.0,
+          "8": 11437.0,
+          "9": 9647.0,
+          "10": 9719.0
+        },
+        "name": "communication",
+        "communication_weight": 0.9,
+        "estimated_external_input_read_bytes_saved": 74016,
+        "estimated_boundary_transfer_bytes_saved": 0,
+        "same_partition_as": "conservative"
+      }
+    ],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "unchanged_schedule",
+      "source": "official_local_makespan",
+      "proxy_before": 50046.0,
+      "proxy_after": 50046.0,
+      "predicted_task_durations": {
+        "0": 15151.0,
+        "1": 13801.0,
+        "2": 14861.0,
+        "3": 11601.0,
+        "4": 11638.0,
+        "5": 11902.0,
+        "6": 21320.0,
+        "7": 11138.0,
+        "8": 11437.0,
+        "9": 9647.0,
+        "10": 9719.0
+      }
+    },
+    "eligible_pairs": 15,
+    "shortlisted_pairs": 15,
+    "seed_tasks": 12,
+    "baseline_proxy": 48289.0,
+    "baseline_estimated_bytes": 872468,
+    "unique_partitions": 1,
+    "evaluation_route": "one_partition_then_measured_duration_reassignment",
+    "total_seconds": 0.2707596580730751,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_023_3core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 2,
+  "added_copy_bytes": 429024,
+  "used_cores": 3
+}

@@ -1,0 +1,31 @@
+{
+  "single": 7715523.0,
+  "best_makespan": 4034783,
+  "speedup": 1.9122522822169123,
+  "selected": "seed_plan",
+  "candidates": [],
+  "v14": {
+    "status": "generation_failed_seed_retained",
+    "seed_makespan": 4034783,
+    "evaluated": 0,
+    "single_seconds": 0.0,
+    "baseline_seconds": 52.396974578965455,
+    "candidate_generation_seconds": 0.0929120039800182,
+    "refinement_generation_seconds": 0.0,
+    "official_candidate_seconds": 0.0,
+    "policies": [],
+    "duration_weight": 0.55,
+    "seed_mode": "saved_plan",
+    "refinement": {
+      "status": "not_attempted"
+    },
+    "error": "ValueError('fast probe limit: <=512 seed tasks and <=7000 compute ops')",
+    "evaluation_route": "no_merge_candidate",
+    "total_seconds": 52.4899030609522,
+    "seed_path": "/mnt/165d5ea0-c4bf-423a-a83b-e5fb727cf65f/lw/A/V10_result/V10_final_2-3-4-5core_allcase_plans/case_016_3core.json",
+    "single_source": "--single"
+  },
+  "official_evaluations": 1,
+  "added_copy_bytes": 119571192,
+  "used_cores": 3
+}
